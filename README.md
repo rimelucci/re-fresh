@@ -31,7 +31,7 @@ Project aiming to reduce waste from places that have to sell their leftover food
 - Paypal API (in the future)
 - PhoneGap
 
-###Long Term Squad Goals
+##Long Term Squad Goals
   1.  Planning on implementing online payment (PayPal API) in the future
   2.  PhoneGap to create mobile app in the future
   3.  Present New York Tech Meetup
