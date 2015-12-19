@@ -1,14 +1,14 @@
 # Re-fresh
 
 Project aiming to reduce waste from places that have to sell their leftover food by the end of the day. 
-  - Marketplace - like environment
-  - Restaurants and stores can post food that they need to sell by the end of the day, for a discounted price
-  - Users can view a live feed of posts from food institutions
-  - Users can search within a specific radius for places that are currently offering discounts
-  - Planning on implementing online payment (PayPal API) in the future
-  - PhoneGap - mobile app in the future
-  - New York Tech Meetup
-  - Billionaires
+  - Many stores and restaurants offer discounts at the end of the day on foods that would spoil or lose quality overnight.
+  - With Re-Fresh, stores can post food that they need to sell by the end of the day and the discounted price they are selling for.
+  - Users can search within a specific radius for places that are currently offering discounts.
+  - Users can view a live feed of posts from food institutions nearby.
+
+##With Re-Fresh, you save money, stores make more money, and less food goes to waste
+###It's a win-win-win!
+
 
 
 ## Overview
@@ -22,7 +22,17 @@ Project aiming to reduce waste from places that have to sell their leftover food
 
 ## Tools
 
-- Angular JS
+- Some Frameworks we're looking at:
+  - Angular.js 2.0
+  - Backbone.js
+  - Node.js
 - Aaron wonga
-- Node JS
 - Geo API
+- Paypal API (in the future)
+- PhoneGap
+
+###Long Term Squad Goals
+  1.  Planning on implementing online payment (PayPal API) in the future
+  2.  PhoneGap to create mobile app in the future
+  3.  Present New York Tech Meetup
+  4.  Become billionaires (whether through this project or not!)
