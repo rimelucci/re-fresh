@@ -1,0 +1,48 @@
+html{
+  height: 100%;
+  overflow: hidden;
+}
+
+.navbarcolor{
+
+}
+
+#body{
+  height: 100%;
+  background-color: #26A65B;
+}
+
+#right{
+  height: 95%;
+  background-color: black;
+}
+
+#top{
+  height: 50%;
+  background-color: #EB9532;
+}
+
+#bottom{
+  height: 50%;
+  background-color: #ABB7B7;
+}
+
+#title{
+  color: white;
+}
+
+#left{
+  padding-top: 2.5%;
+}
+
+.writing{
+  font-family: 'Quicksand', sans-serif;
+}
+
+.heavy{
+  font-weight: 700;
+}
+
+.light{
+  font-weight: 300;
+}
