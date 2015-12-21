@@ -18,7 +18,7 @@ def register():
         error=""
         return render_template("login.html", error=error)
 
-@app.route("/loginr", methods=["GET","POST"])
+@app.route("/login", methods=["GET","POST"])
 def login():
     #get case
     if request.method == "GET":
