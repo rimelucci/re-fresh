@@ -10,29 +10,23 @@ html{
 #body{
   height: 100%;
   background-color: #26A65B;
+  background-image: url(http://weknowyourdreams.com/images/food/food-02.jpg);
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
 }
 
 #right{
   height: 95%;
-  background-color: black;
 }
 
-#top{
-  height: 50%;
-  background-color: #EB9532;
-}
-
-#bottom{
-  height: 50%;
-  background-color: #ABB7B7;
-}
-
-#title{
+.white{
   color: white;
 }
 
 #left{
-  padding-top: 2.5%;
+  padding-top: 5%;
+  padding-left: 5%;
+  border-right: 1px, solid, black;
 }
 
 .writing{
@@ -45,4 +39,31 @@ html{
 
 .light{
   font-weight: 300;
+}
+
+.table{
+  display: table;
+  height: 100%;
+}
+
+.cell{
+  display: table-cell;
+  width: 50%;
+  height: 100%;
+}
+
+.cell2{
+  display: table-cell;
+  width: 33%;
+  height: 100%;
+  padding-top: 7.5%;
+  padding-right: 2.5%;
+}
+
+#form-holder{
+  background-color: #26A69B;
+  height: 75%;
+  top: 50%;
+  border-radius: 15px;
+  margin-right: 5%;
 }
