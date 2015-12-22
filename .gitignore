@@ -1,2 +1,5 @@
 # ignore temp files
 *~
+
+# ignore virtualenv
+env
