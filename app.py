@@ -1,4 +1,6 @@
-from flask import Flask, render_template, session, redirect, url_for, request, flash, Markup
+from flask import Flask, render_template, session, redirect
+from flask import url_for, request, flash, Markup
+import utils
 
 app = Flask(__name__)
 

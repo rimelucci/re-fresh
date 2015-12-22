@@ -3,3 +3,6 @@
 
 # ignore virtualenv
 env
+
+# ignore .pyc files
+*.pyc
