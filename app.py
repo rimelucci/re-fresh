@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    error=""
+    error = ""
     return render_template("home.html", error=error)
 
 
@@ -13,18 +13,18 @@ def home():
 def register():
     if session.get('user') != None:
         error = "You are already logged in!"
-        return redirect("/", error=error)
+        return redirect(url_for("/", error=error))
     else:
-        error=""
+        error = "" 
         return render_template("login.html", error=error)
 
 @app.route("/login", methods=["GET","POST"])
 def login():
-    #get case
+    #GET case
     if request.method == "GET":
-        error=""
+        error= ""
         return render_template("register.html", error=error)
-    #post case
+    #POST case
     else:
         username = request.form["username"]
         password = request.form["password"]
@@ -34,17 +34,17 @@ def login():
             session.permanent = True
             app.permanent_session_lifetime = timedelta(minutes=5)
             error = "You have successfully logged in!"
-            return redirect("/", error=error)
+            return redirect(url_for("/", error=error))
         #login fails
         else:
             error = "Incorrect Username or Password!"
-            return redirect("/login", error=error)
+            return redirect(url_for("/login", error=error))
 
 @app.route("/logout")
 def logout():
     session.pop('user', None)
     error = "You have successfully logged out!"
-    return redirect("/", error=error)
+    return redirect(url_for("/", error=error))
  
 @app.route("/about")
 def about():
