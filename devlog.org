@@ -1,5 +1,11 @@
 * Devlog
 ** 12/19/15
 - Young
-  - Created DevLog 
+  - Created DevLog
   - Branched off for Database
+- Rick
+  - Created base files
+  - made header and layout of landing page
+  - landing page styles
+  - set up angular, but need to look into angular 2
+  

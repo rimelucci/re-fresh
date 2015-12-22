@@ -56,14 +56,32 @@ html{
   display: table-cell;
   width: 33%;
   height: 100%;
-  padding-top: 7.5%;
-  padding-right: 2.5%;
+  /*padding-top: 7.5%;
+  padding-right: 2.5%;*/
+  position: relative;
 }
 
 #form-holder{
-  background-color: #26A69B;
+  background-color: white;
   height: 75%;
-  top: 50%;
   border-radius: 15px;
+  top: 50%;
+  transform: translateY(-50%);
   margin-right: 5%;
+}
+
+#form{
+  width: 75%;
+  margin-top: 5%;
+}
+
+.parent{
+  position: relative;
+}
+
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
