@@ -1,4 +1,9 @@
 * Devlog
+** 12/22/15
+- Young
+  - Finished basic backend: Creating users and authentication
+  - Methods were fully tested and commented
+
 ** 12/19/15
 - Young
   - Created DevLog
