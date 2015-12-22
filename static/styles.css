@@ -1,6 +1,5 @@
 html{
   height: 100%;
-  overflow: hidden;
 }
 
 .navbarcolor{
@@ -19,13 +18,12 @@ html{
   height: 95%;
 }
 
-.white{
+.whitetext{
   color: white;
 }
 
 #left{
-  padding-top: 5%;
-  padding-left: 5%;
+  padding: 5%;
   border-right: 1px, solid, black;
 }
 
