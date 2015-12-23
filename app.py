@@ -12,34 +12,24 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET","POST"])
 def home():
-    #GET case
-    if request.method == "GET":
-        error= ""
-        return render_template("index.html", error=error)
-    #POST case
-    else:
-        username = request.form["username"]
-        password = request.form["password"]
-        email = request.form["email"]
-        #put in the real names of the inputs later
-        if utils.check_username(username):
-            #if username is usable, then register user
-            utils.register_user(username,email,password);
-            return redirect(url_for("/", error=error))
-        #username is not usable
-        else:
-            error = "You have entered an unusable username, password, or email."
-            return redirect(url_for("/", error=error))
-    print utils.fetch_all_users()
+    error= ""
+    return render_template("index.html", error=error)
 
-# @app.route("/register", methods=["GET", "POST"])
-# def register():
-#     if session.get('user') != None:
-#         error = "You are already logged in!"
-#         return redirect(url_for("/", error=error))
-#     else:
-#         error = "" 
-#         return render_template("login.html", error=error)
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    username = request.form["username"]
+    password = request.form["password"]
+    email = request.form["email"]
+    #put in the real names of the inputs later
+    if utils.check_username(username):
+        #if username is usable, then register user
+        utils.register_user(username,email,password)
+        print utils.fetch_all_users()
+        return redirect(url_for("/", error=error))
+    else:
+        print "error"
+        error = "You have entered an unusable username, password, or email."
+        return redirect(url_for("/", error=error))
 
 @app.route("/login", methods=["GET","POST"])
 def login():
