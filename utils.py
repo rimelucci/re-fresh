@@ -50,7 +50,9 @@ def register_user(fullname, email, password):
     if check == []:
         t = {'fullname':fullname, 'email': email, 'password':hash(password)}
         db.users.insert(t)
+        print fetch_all_users()
         return True
+    print fetch_all_users()
     return False
 
 
