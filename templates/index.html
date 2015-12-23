@@ -17,16 +17,16 @@
     <div class="nav-wrapper" style="padding-right: 2.5% ; padding-left: 5%">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">Sass</a></li>
-        <li><a href="#">Components</a></li>
-        <li><a href="#">JavaScript</a></li>
+        <li><a href="/templates/index.html">Home</a></li>  <!--- ADD ROUTE HERE -->
+        <li><a href="/templates/customerlogin.html">For Customers</a></li>  <!--ADD ROUTE HERE -->
+        <li><a href="#">For Providers</a></li>
       </ul>
     </div>
   </nav>
 </header>
 
 
-  <body id="body">
+  <body class="body">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
     <div class="table">
@@ -56,8 +56,13 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
                   <div class="form-group">
                     <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                   </div>
-									<button type="submit" class="btn btn-default writing">Submit</button>
-									<small class="writing" style="float: right">Have an account? Log in <a href="#">here</a>!</small>
+
+                  <div class="row">
+                    <button type="submit" class="btn btn-default writing">Submit</button>
+                  </div>
+                  <div class="row">
+									    <small class="writing">Have an account? Log in <a href="/templates/customerlogin.html">here</a>!</small> <!--ADD ROUTE HERE-->
+                  </div>
                 </form>
               </div>
           </div>
