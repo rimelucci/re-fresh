@@ -92,6 +92,14 @@ def fetch_all_users():
     return list(users)
 
 """
+TESTING ONLY
+
+Resets database
+"""
+def reset():
+    db.drop_collection('users')
+
+"""
 ------------------------TESTING-------------------
 """
 if __name__ == "__main__":
