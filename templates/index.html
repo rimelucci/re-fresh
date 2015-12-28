@@ -45,29 +45,83 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
           </div>
 
           <div class="cell2" id="right" >
-              <div class="jumbotron parent" id="form-holder">
-                <center><h1 class="writing">Sign up!</h1></center>
-                <form class="center" id="form" action="/register" method="POST">
-                  <div class="form-group">
-                    <input name="username" type="text" class="form-control" placeholder="Name">
-                  </div>
-                  <div class="form-group">
-                    <input name="email" type="email" class="form-control" placeholder="Email">
-                  </div>
-                  <div class="form-group">
-                    <input name="password" type="password" class="form-control" placeholder="Password">
+            <div id="form-holder" class="writing">
+              <form id="form" class="horizontal-center" action="/register" method="POST">
+                  <div class="row">
+                    <h1>Sign Up</h1>
+
+                    <div class="input-field col s12">
+                      <input placeholder="Name" id="first_name" type="text" class="validate writing form-control">
+                    </div>
+
+                    <div class="input-field col s12">
+                      <input placeholder="Username" id="first_name" type="text" class="validate writing form-control">
+                    </div>
+
+                    <div class="input-field col s12">
+                      <input placeholder="Password" id="first_name" type="text" class="validate writing form-control">
+                    </div>
                   </div>
 
                   <div class="row">
                     <button type="submit" class="btn btn-default writing">Submit</button>
                   </div>
+
                   <div class="row">
-									    <small class="writing">Have an account? Log in <a href="/templates/customerlogin.html">here</a>!</small> <!--ADD ROUTE HERE-->
+                    <small class="writing" >Don't have an account? Sign up <a href="/templates/register.html">here</a>!</small> <!-- ADD ROUTE HERE -->
                   </div>
-                </form>
-              </div>
+              </form>
+            </div>
           </div>
     </div>
+
+    <!--<div id="login-form" class="center">
+      <form action="index.html" method="post">
+        <div class="row">
+          <h1 class="writing">Log in</h1>
+
+          <div class="input-field col s8 offset-s2">
+            <input placeholder="Username" id="first_name" type="text" class="validate writing form-control">
+          </div>
+
+          <div class="input-field col s8 offset-s2">
+            <input placeholder="Password" id="first_name" type="text" class="validate writing form-control">
+          </div>
+
+        </div>
+
+        <div class="row">
+          <button type="submit" class="btn btn-default writing">Submit</button>
+        </div>
+
+        <div class="row">
+          <small class="writing" >Don't have an account? Sign up <a href="/templates/register.html">here</a>!</small> <!-- ADD ROUTE HERE -->
+        </div>
+
+      </form>
+    </div>-->
+
+    <!--<div class="jumbotron parent" id="form-holder">
+      <center><h1 class="writing">Sign up!</h1></center>
+      <form class="center" id="form" action="/register" method="POST">
+        <div class="form-group">
+          <input name="username" type="text" class="form-control" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <input name="email" type="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <input name="password" type="password" class="form-control" placeholder="Password">
+        </div>
+
+        <div class="row">
+          <button type="submit" class="btn btn-default writing">Submit</button>
+        </div>
+        <div class="row">
+            <small class="writing">Have an account? Log in <a href="/templates/customerlogin.html">here</a>!</small> <!--ADD ROUTE HERE--
+        </div>
+      </form>
+    </div>-->
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>

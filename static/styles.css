@@ -65,11 +65,10 @@ html{
 
 #form-holder{
   background-color: white;
-  height: 75%;
+  padding-left: 5%;
+  width: 75%;
   border-radius: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-right: 5%;
+  padding: 5%;
 }
 
 #form{
