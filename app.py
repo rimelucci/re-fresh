@@ -25,11 +25,11 @@ def register():
         #if username is usable, then register user
         utils.register_user(username,email,password)
         print utils.fetch_all_users()
-        return redirect(url_for("/", error=error))
+        return redirect(url_for("home"))
     else:
         print "error"
         error = "You have entered an unusable username, password, or email."
-        return redirect(url_for("/", error=error))
+        return redirect(render_template("index.html", error=error))
 
 @app.route("/login", methods=["GET","POST"])
 def login():
@@ -47,7 +47,7 @@ def login():
             session.permanent = True
             app.permanent_session_lifetime = timedelta(minutes=5)
             error = "You have successfully logged in!"
-            return redirect(url_for("/", error=error))
+            return redirect(render_template("index.html", error=error))
         #login fails
         else:
             error = "Incorrect Username or Password!"
@@ -57,12 +57,18 @@ def login():
 def logout():
     session.pop('user', None)
     error = "You have successfully logged out!"
-    return redirect(url_for("/", error=error))
+    return redirect(render_template("/", error=error))
  
 @app.route("/about")
 def about():
     error=""
     return render_template("about.html", error=error)
+
+@app.route("/reset")
+def reset():
+    utils.reset()
+    print "DATABASE RESET"
+    return redirect(url_for("home"))
 
 if __name__ == "__main__":
     app.debug = True
