@@ -6,12 +6,16 @@ html{
 
 }
 
-#body{
+.body{
   height: 100%;
   background-color: #26A65B;
   background-image: url(http://weknowyourdreams.com/images/food/food-02.jpg);
   background-repeat: no-repeat;
   background-blend-mode: multiply;
+}
+
+#body-home{
+  height: 100%;
 }
 
 #right{
@@ -82,4 +86,41 @@ html{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#login-form{
+  background-color: white;
+  width: 50%;
+  border-radius: 15px;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+#big-container{
+  background-color: white;
+  width: 75%;
+  left: 0; right: 0;
+  margin: auto;
+}
+
+.black{
+  background-color: black;
+}
+
+.white{
+  background-color: white;
+}
+
+.horizontal-center{
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.entry{
+  height: 300px;
+  border-radius: 15px;
+  border: solid 1pt black;
 }
