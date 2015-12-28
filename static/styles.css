@@ -14,6 +14,10 @@ html{
   background-blend-mode: multiply;
 }
 
+#body-home{
+  height: 100%;
+}
+
 #right{
   height: 95%;
 }
@@ -92,4 +96,31 @@ html{
 
 a{
   text-decoration: none !important;
+}
+
+#big-container{
+  background-color: white;
+  width: 75%;
+  left: 0; right: 0;
+  margin: auto;
+}
+
+.black{
+  background-color: black;
+}
+
+.white{
+  background-color: white;
+}
+
+.horizontal-center{
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.entry{
+  height: 300px;
+  border-radius: 15px;
+  border: solid 1pt black;
 }
