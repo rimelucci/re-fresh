@@ -4,15 +4,10 @@ import utils
 
 app = Flask(__name__)
 
-# @app.route("/")
-# @app.route("/home")
-# def home():
-#     error = ""
-#     return render_template("index.html", error=error)
-
-@app.route("/", methods=["GET","POST"])
+@app.route("/")
+@app.route("/home")
 def home():
-    error= ""
+    error = ""
     return render_template("index.html", error=error)
 
 @app.route("/register", methods=["GET", "POST"])
@@ -24,12 +19,12 @@ def register():
     if utils.check_username(username):
         #if username is usable, then register user
         utils.register_user(username,email,password)
-        print utils.fetch_all_users()
+        #print utils.fetch_all_users()
         return redirect(url_for("home"))
     else:
-        print "error"
+        #print "error"
         error = "You have entered an unusable username, password, or email."
-        return redirect(render_template("index.html", error=error))
+        return redirect(url_for("index"))
 
 @app.route("/login", methods=["GET","POST"])
 def login():
@@ -47,17 +42,17 @@ def login():
             session.permanent = True
             app.permanent_session_lifetime = timedelta(minutes=5)
             error = "You have successfully logged in!"
-            return redirect(render_template("index.html", error=error))
+            return redirect("index.html")
         #login fails
         else:
             error = "Incorrect Username or Password!"
-            return redirect(url_for("/login", error=error))
+            return redirect(url_for("login"))
 
 @app.route("/logout")
 def logout():
     session.pop('user', None)
     error = "You have successfully logged out!"
-    return redirect(render_template("/", error=error))
+    return redirect(url_for("/"))
  
 @app.route("/about")
 def about():
@@ -69,6 +64,13 @@ def reset():
     utils.reset()
     print "DATABASE RESET"
     return redirect(url_for("home"))
+
+@app.route("/customerlogin")
+def custlogin():
+    return render_template("customerlogin.html")
+
+
+
 
 if __name__ == "__main__":
     app.debug = True
