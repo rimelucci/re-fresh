@@ -5,8 +5,7 @@ import utils
 app = Flask(__name__)
 
 @app.route("/")
-@app.route("/home")
-def home():
+def index():
     return render_template("index.html")
 
 @app.route("/register", methods=["GET", "POST"])
@@ -59,6 +58,10 @@ def reset():
 @app.route("/customerlogin")
 def custlogin():
     return render_template("customerlogin.html")
+
+@app.route("/home")
+def home():
+    return render_template("home.html")
 
 
 
