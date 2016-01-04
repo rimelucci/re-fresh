@@ -47,13 +47,13 @@ def login():
 @app.route("/logout")
 def logout():
     session.pop('user', None)
-    return redirect(url_for("/"))
+    return redirect(url_for("index"))
  
 @app.route("/reset")
 def reset():
     utils.reset()
     print "DATABASE RESET"
-    return redirect(url_for("home"))
+    return redirect(url_for("index"))
 
 @app.route("/customerlogin")
 def custlogin():
@@ -62,8 +62,6 @@ def custlogin():
 @app.route("/home")
 def home():
     return render_template("home.html")
-
-
 
 
 if __name__ == "__main__":
