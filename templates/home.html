@@ -1,44 +1,15 @@
-<!-- START FOR REPETITIVE HEAD BLOCK-->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello Angular</title>
-    <link rel="stylesheet" href="../static/styles.css" media="screen" title="main-styles" charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" media="screen" title="flatUI" charset="utf-8">
-    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
-    <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  </head>
-	<!-- REPETITIVE BLOCK FOR SETTING UP STUFF-->
+{% extends master.html %}
 
-  <!-- HEADER HERE ------->
-  	<header>
-      <div class="navbar-fixed">
-      	  <nav>
-      	    <div class="nav-wrapper writing" style="padding-right: 2.5% ; padding-left: 5%">
-      	      <a href="#" class="brand-logo">Re-Fresh</a>
-      	      <ul id="nav-mobile" class="right hide-on-med-and-down">
-      	        <li><a href="/templates/index.html">Home</a></li>  <!-- ADD ROUTE HERE -->
-      	        <li><a href="/templates/customerlogin.html">Near You</a></li>  <!-- ADD ROUTE HERE -->
-      	        <li><a href="#"><i class="material-icons">search</i></a></li>
-                <li><a href="#"><i class="material-icons">shopping_cart</i></a></li>
-                <li><a href="#"><i class="material-icons">settings</i></a></li>
-      	      </ul>
-      	    </div>
-      	  </nav>
-      </div>
-  	</header>
-  	<!---END HEADER -------->
+{% block head %}
+{{ super() }}
+{% endblock %}
 
 <!-- Each row has 4 items, I've labeled the parts that we need to replace -->
 <!-- Need to replace the image, the title, the description -->
 
 
 <!--BEGIN BODY -->
+{% block body %}
 <body id="body-home">
 
   <!--CONTAINER THAT HOLDS EVERYTHING -->
@@ -192,3 +163,4 @@
       </div>
       <!-- END ROW HERE -->
 </body>
+{% endblock %}
