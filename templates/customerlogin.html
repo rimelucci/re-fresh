@@ -1,36 +1,10 @@
-<!-- START FOR REPETITIVE HEAD BLOCK-->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello Angular</title>
-    <link rel="stylesheet" href="../static/styles.css" media="screen" title="main-styles" charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" media="screen" title="flatUI" charset="utf-8">
-    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
-    <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  </head>
-	<!-- REPETITIVE BLOCK FOR SETTING UP STUFF-->
+{% extends "master.html" %}
 
+{% block head %}
+{{ super() }}
+{% endblock %}
 
-<!-- HEADER HERE ------->
-	<header>
-	  <nav>
-	    <div class="nav-wrapper" style="padding-right: 2.5% ; padding-left: 5%">
-	      <a href="#" class="brand-logo writing">Re-Fresh</a>
-	      <ul id="nav-mobile" class="right hide-on-med-and-down">
-	        <li class="writing"><a href="/">Home</a></li>  <!-- ADD ROUTE HERE -->
-	        <li class="writing"><a href="/customerlogin">For Customers</a></li>  <!-- ADD ROUTE HERE -->
-	        <li class="writing"><a href="#">For Providers</a></li>
-	      </ul>
-	    </div>
-	  </nav>
-	</header>
-	<!---END HEADER -------->
-
-
+{% block body %}
 	<body class="body">
 		<div id="login-form" class="center">
 			<form action="index.html" method="post">
@@ -52,10 +26,12 @@
 				</div>
 
 				<div class="row">
-					<small class="writing" >Don't have an account? Sign up <a href="/templates/register.html">here</a>!</small> <!-- ADD ROUTE HERE -->
+					<small class="writing" >Don't have an account? Sign up <a href="/register">here</a>!</small> <!-- ADD ROUTE HERE -->
 				</div>
 
 			</form>
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 	</body>
+
+{% endblock %}

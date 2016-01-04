@@ -7,8 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    error = ""
-    return render_template("index.html", error=error)
+    return render_template("index.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -22,16 +21,13 @@ def register():
         #print utils.fetch_all_users()
         return redirect(url_for("home"))
     else:
-        #print "error"
-        error = "You have entered an unusable username, password, or email."
         return redirect(url_for("index"))
 
 @app.route("/login", methods=["GET","POST"])
 def login():
     #GET case
     if request.method == "GET":
-        error= ""
-        return render_template("register.html", error=error)
+        return render_template("register.html")
     #POST case
     else:
         username = request.form["username"]
@@ -41,24 +37,16 @@ def login():
             session['user'] = username
             session.permanent = True
             app.permanent_session_lifetime = timedelta(minutes=5)
-            error = "You have successfully logged in!"
             return redirect("index.html")
         #login fails
         else:
-            error = "Incorrect Username or Password!"
             return redirect(url_for("login"))
 
 @app.route("/logout")
 def logout():
     session.pop('user', None)
-    error = "You have successfully logged out!"
     return redirect(url_for("/"))
  
-@app.route("/about")
-def about():
-    error=""
-    return render_template("about.html", error=error)
-
 @app.route("/reset")
 def reset():
     utils.reset()
