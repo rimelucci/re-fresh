@@ -1,4 +1,4 @@
-{% extends master.html %}
+{% extends "master.html" %}
 
 {% block head %}
 {{ super() }}
@@ -30,7 +30,7 @@
 				</div>
 
 				<div class="row">
-					<small class="writing" >Have an account? Log in <a href="/templates/customerlogin.html">here</a>!</small> <!-- ADD ROUTE HERE -->
+					<small class="writing" >Have an account? Log in <a href="/customerlogin">here</a>!</small> <!-- ADD ROUTE HERE -->
 				</div>
 
 			</form>

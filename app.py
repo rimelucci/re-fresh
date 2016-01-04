@@ -11,17 +11,20 @@ def home():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    username = request.form["username"]
-    password = request.form["password"]
-    email = request.form["email"]
-    #put in the real names of the inputs later
-    if utils.check_username(username):
-        #if username is usable, then register user
-        utils.register_user(username,email,password)
-        #print utils.fetch_all_users()
-        return redirect(url_for("home"))
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        email = request.form["email"]
+        if utils.check_username(username):
+            #if username is usable, then register user
+            utils.register_user(username,email,password)
+            #print utils.fetch_all_users()
+            return redirect(url_for("home"))
+        else:
+            return redirect(url_for("register"))
+    #GET case
     else:
-        return redirect(url_for("index"))
+        return render_template("register.html")
 
 @app.route("/login", methods=["GET","POST"])
 def login():
