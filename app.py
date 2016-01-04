@@ -18,7 +18,7 @@ def register():
             #if username is usable, then register user
             utils.register_user(username,email,password)
             #print utils.fetch_all_users()
-            return redirect(url_for("home"))
+            return redirect(url_for("index"))
         else:
             return redirect(url_for("register"))
     #GET case

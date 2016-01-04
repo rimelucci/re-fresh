@@ -7,7 +7,7 @@
 {% block body %}
 	<body class="body">
 		<div id="login-form" class="center">
-			<form action="index.html" method="post">
+			<form method="POST">
 				<div class="row">
 					<h1 class="writing">Sign up</h1>
 
@@ -16,11 +16,11 @@
           </div>
 
 					<div class="input-field col s8 offset-s2">
-						<input placeholder="Username" id="first_name" type="text" class="validate writing form-control">
+						<input placeholder="Username" name="email" id="first_name" type="text" class="validate writing form-control">
 					</div>
 
 					<div class="input-field col s8 offset-s2">
-						<input placeholder="Password" id="first_name" type="text" class="validate writing form-control">
+						<input placeholder="Password" name="password" id="first_name" type="text" class="validate writing form-control">
 					</div>
 
 				</div>
