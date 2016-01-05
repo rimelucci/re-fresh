@@ -1,6 +1,15 @@
 import googlemaps
 
-# Input an address as a parameter, returns the latitude and longitude
+
+"""
+Returns coordinates of address
+
+Args:
+    address - desired address for conversion
+
+Returns:
+    coordinates of address
+"""
 def getCoordinates(address):
     gmaps = googlemaps.Client(key='AIzaSyCAdFRAtym1LwaUGHvmTb4ofnvgyrMDINA')
     geocode_result = gmaps.geocode(address)
@@ -11,7 +20,18 @@ def getCoordinates(address):
     return result
     
 
-def getClosest(origin, destination,num):
+"""
+Returns x closest locations to origin
+
+Args:
+    origin - string of origin address
+    destination - list of strings of destination addresses
+    num - number of closest locations to be returned
+
+Returns:
+    Returns x closest locations to origin
+"""
+def getClosest(origin, destination, num):
     result = []
     counter = 0
     gmaps = googlemaps.Client(key='AIzaSyCAdFRAtym1LwaUGHvmTb4ofnvgyrMDINA')
@@ -33,9 +53,8 @@ def getClosest(origin, destination,num):
         counter = counter + 1
     return topnum
         
-        
     
-print getClosest(["345 Chambers St, NY, 10282"],["Las Vegas","Grand Central Station", "Flushing, Queens","Los Angeles"],3)
+print getClosest(["2612 E 11th Street, Brooklyn, NY"],["Las Vegas","Grand Central Station", "Flushing, Queens","Los Angeles"],3)
 
 # print getCoordinates('345 Chambers St, NY, 10282')
 
