@@ -62,7 +62,7 @@ Args:
     destination - string of destination address
 
 Returns:
-   2d array of directions, with instructions in HTML and distance required
+   2d array of directions, with instructions in HTML and distance
 """
 def getDirections(origin,destination):
     results = []
@@ -77,10 +77,11 @@ def getDirections(origin,destination):
         temp.append( i['html_instructions'] )
         temp.append( 'Distance: <b>:' + i['distance']['text'] + '</b>' )
         results.append(temp)
-    return results
-
-
-
+    # return results
+    for i in results:
+        print i[0]
+        print i[1]
+    
 print getDirections("75 Minna Street, 11218", "345 Chambers St, 10282")
 # print getClosest(["10282"],["Las Vegas","Grand Central Station", "Flushing, Queens","Los Angeles"],3)
 
@@ -91,5 +92,3 @@ print getDirections("75 Minna Street, 11218", "345 Chambers St, 10282")
 # place_id
 # formatted_address
 # types
-
-        
