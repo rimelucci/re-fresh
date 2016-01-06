@@ -53,17 +53,36 @@ def getClosest(origin, destination, num):
         counter = counter + 1
     return topnum
         
-def getDirections():
+
+
+"""
+Returns directions from an origin to a destination
+
+Args:
+    origin - string of origin address
+    destination - string of destination address
+
+Returns:
+   2d array of directions, with instructions in HTML and distance required
+"""
+def getDirections(origin,destination):
+    results = []
     gmaps = googlemaps.Client(key='AIzaSyCAdFRAtym1LwaUGHvmTb4ofnvgyrMDINA')
-    routes = gmaps.directions("75 Minna Street, 11218", "345 Chambers St, 10282",
+    routes = gmaps.directions(origin,destination,
                               mode="walking",
                               traffic_model="optimistic",
                               departure_time="now")
-    
-    print routes[0]['legs']['steps']
+
+    for i in routes[0]['legs'][0]['steps']:
+        temp = []
+        temp.append( i['html_instructions'] )
+        temp.append( 'Distance: <b>:' + i['distance']['text'] + '</b>' )
+        results.append(temp)
+    return results
 
 
-getDirections()
+
+print getDirections("75 Minna Street, 11218", "345 Chambers St, 10282")
 # print getClosest(["10282"],["Las Vegas","Grand Central Station", "Flushing, Queens","Los Angeles"],3)
 
 # print getCoordinates('345 Chambers St, NY, 10282')
