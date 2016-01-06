@@ -9,6 +9,17 @@
   <body class="body">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+
     <div class="table">
           <div class="cell" id="left">
             <h1 class="writing heavy whitetext">Welcome to Refresh</h1>

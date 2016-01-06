@@ -5,7 +5,17 @@
 {% endblock %}
 
 {% block body %}
-	<body class="body">
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class=flashes>
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+<body class="body">
 		<div id="login-form" class="center">
 			<form method="POST">
 				<div class="row">

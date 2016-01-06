@@ -18,8 +18,10 @@ def register():
             #if username is usable, then register user
             utils.register_user(username,email,password)
             #print utils.fetch_all_users()
+            flash('You have successfully registered a customer account')
             return redirect(url_for("index"))
         else:
+            flash('Register failed')
             return redirect(url_for("register"))
     #GET case
     else:
@@ -37,22 +39,19 @@ def login():
         if authenticate(username,password):
             #authenticate function
             session['user'] = username
-            session.permanent = True
-            app.permanent_session_lifetime = timedelta(minutes=5)
-            return redirect("index.html")
+            #session.permanent = True
+            #app.permanent_session_lifetime = timedelta(minutes=5)
+            flash('You have succesfully logged in as ' + username)
+            return redirect(url_for("/"))
         #login fails
         else:
+            flash("Your email and password do not match")
             return redirect(url_for("login"))
 
 @app.route("/logout")
 def logout():
     session.pop('user', None)
-    return redirect(url_for("index"))
- 
-@app.route("/reset")
-def reset():
-    utils.reset()
-    print "DATABASE RESET"
+    flash("You have successfully logged out of your account")
     return redirect(url_for("index"))
 
 @app.route("/customerlogin")
@@ -63,7 +62,14 @@ def custlogin():
 def home():
     return render_template("home.html")
 
+ 
+@app.route("/reset")
+def reset():
+    utils.reset()
+    print "DATABASE RESET"
+    return redirect(url_for("index"))
 
+    
 if __name__ == "__main__":
     app.debug = True
     app.secret_key="secret"
