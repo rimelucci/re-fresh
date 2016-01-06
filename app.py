@@ -6,7 +6,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    if 'user' in session:
+        return render_template("home.html")
+    else:
+        return render_template("index.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -28,25 +31,25 @@ def register():
         return render_template("register.html")
 
 @app.route("/customerlogin", methods=["GET","POST"])
-def clogin():
+def customer_login():
     #GET case
     if request.method == "GET":
-        return render_template("register.html")
+        return render_template("customerlogin.html")
     #POST case
     else:
         username = request.form["username"]
         password = request.form["password"]
-        if authenticate(username,password):
+        if utils.authenticate_user(username,password):
             #authenticate function
             session['user'] = username
             #session.permanent = True
             #app.permanent_session_lifetime = timedelta(minutes=5)
             flash('You have succesfully logged in as ' + username)
-            return redirect(url_for("/"))
+            return redirect(url_for("index"))
         #login fails
         else:
             flash("Your email and password do not match")
-            return redirect(url_for("clogin"))
+            return redirect(url_for("customer_login"))
 
 @app.route("/logout")
 def logout():
@@ -63,7 +66,7 @@ def home():
 def reset():
     utils.reset()
     print "DATABASE RESET"
-    return redirect(url_for("index"))
+    return redirect(url_for("logout"))
 
     
 if __name__ == "__main__":
