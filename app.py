@@ -27,8 +27,8 @@ def register():
     else:
         return render_template("register.html")
 
-@app.route("/login", methods=["GET","POST"])
-def login():
+@app.route("/customerlogin", methods=["GET","POST"])
+def clogin():
     #GET case
     if request.method == "GET":
         return render_template("register.html")
@@ -46,17 +46,13 @@ def login():
         #login fails
         else:
             flash("Your email and password do not match")
-            return redirect(url_for("login"))
+            return redirect(url_for("clogin"))
 
 @app.route("/logout")
 def logout():
     session.pop('user', None)
     flash("You have successfully logged out of your account")
     return redirect(url_for("index"))
-
-@app.route("/customerlogin")
-def custlogin():
-    return render_template("customerlogin.html")
 
 @app.route("/home")
 def home():

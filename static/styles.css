@@ -100,6 +100,7 @@ a{
 #big-container{
   background-color: white;
   width: 75%;
+  padding-top: 5%;
   left: 0; right: 0;
   margin: auto;
 }

@@ -8,7 +8,7 @@ Args:
     address - desired address for conversion
 
 Returns:
-    coordinates of address
+    string of coordinates -> "(lat,long)"
 """
 def getCoordinates(address):
     gmaps = googlemaps.Client(key='AIzaSyCAdFRAtym1LwaUGHvmTb4ofnvgyrMDINA')
@@ -53,8 +53,18 @@ def getClosest(origin, destination, num):
         counter = counter + 1
     return topnum
         
+def getDirections():
+    gmaps = googlemaps.Client(key='AIzaSyCAdFRAtym1LwaUGHvmTb4ofnvgyrMDINA')
+    routes = gmaps.directions("75 Minna Street, 11218", "345 Chambers St, 10282",
+                              mode="walking",
+                              traffic_model="optimistic",
+                              departure_time="now")
     
-print getClosest(["2612 E 11th Street, Brooklyn, NY"],["Las Vegas","Grand Central Station", "Flushing, Queens","Los Angeles"],3)
+    print routes[0]['legs']['steps']
+
+
+getDirections()
+# print getClosest(["10282"],["Las Vegas","Grand Central Station", "Flushing, Queens","Los Angeles"],3)
 
 # print getCoordinates('345 Chambers St, NY, 10282')
 
