@@ -92,5 +92,3 @@ print getDirections("75 Minna Street, 11218", "345 Chambers St, 10282")
 # place_id
 # formatted_address
 # types
-
-        
