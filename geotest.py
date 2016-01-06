@@ -42,7 +42,6 @@ def getClosest(origin, destination, num):
             temp.append(l['distance']['value'])
             temp.append(l['duration']['text'])
             temp.append(destination[counter])
-
             counter = counter + 1
             result.append(temp)
     result = sorted(result)
