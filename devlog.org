@@ -13,4 +13,10 @@
   - made header and layout of landing page
   - landing page styles
   - set up angular, but need to look into angular 2
-  
+
+**The HTML Files we have:
+- index.html (Home page, with the description and sign up. This is what you first see)
+- home.html (the feed page, where you see all the items that are available near you)
+- register.html (allows users to sign up in case they enter the website not through index.html)
+- login.html (allows users to log in with their information)
+- settings.html (not done, but allows you to )
