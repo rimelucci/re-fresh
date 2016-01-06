@@ -8,7 +8,7 @@ Args:
     address - desired address for conversion
 
 Returns:
-    coordinates of address
+    string of coordinates -> "(lat,long)"
 """
 def getCoordinates(address):
     gmaps = googlemaps.Client(key='AIzaSyCAdFRAtym1LwaUGHvmTb4ofnvgyrMDINA')
@@ -42,7 +42,6 @@ def getClosest(origin, destination, num):
             temp.append(l['distance']['value'])
             temp.append(l['duration']['text'])
             temp.append(destination[counter])
-
             counter = counter + 1
             result.append(temp)
     result = sorted(result)
@@ -53,8 +52,37 @@ def getClosest(origin, destination, num):
         counter = counter + 1
     return topnum
         
-    
-print getClosest(["2612 E 11th Street, Brooklyn, NY"],["Las Vegas","Grand Central Station", "Flushing, Queens","Los Angeles"],3)
+
+
+"""
+Returns directions from an origin to a destination
+
+Args:
+    origin - string of origin address
+    destination - string of destination address
+
+Returns:
+   2d array of directions, with instructions in HTML and distance required
+"""
+def getDirections(origin,destination):
+    results = []
+    gmaps = googlemaps.Client(key='AIzaSyCAdFRAtym1LwaUGHvmTb4ofnvgyrMDINA')
+    routes = gmaps.directions(origin,destination,
+                              mode="walking",
+                              traffic_model="optimistic",
+                              departure_time="now")
+
+    for i in routes[0]['legs'][0]['steps']:
+        temp = []
+        temp.append( i['html_instructions'] )
+        temp.append( 'Distance: <b>:' + i['distance']['text'] + '</b>' )
+        results.append(temp)
+    return results
+
+
+
+print getDirections("75 Minna Street, 11218", "345 Chambers St, 10282")
+# print getClosest(["10282"],["Las Vegas","Grand Central Station", "Flushing, Queens","Los Angeles"],3)
 
 # print getCoordinates('345 Chambers St, NY, 10282')
 

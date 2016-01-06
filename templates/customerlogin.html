@@ -5,9 +5,20 @@
 {% endblock %}
 
 {% block body %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
 	<body class="body">
 		<div id="login-form" class="center">
-			<form action="index.html" method="post">
+			<form method="post">
 				<div class="row">
 					<h1 class="writing">Log in</h1>
 
