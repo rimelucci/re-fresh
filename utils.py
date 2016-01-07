@@ -29,7 +29,7 @@ Returns:
     False if it is not
 """
 def check_username(username):
-    return not re.search('[^a-zA-Z0-9]', username) and len(username) > 0
+    return not re.search('[^a-zA-Z0-9]', username.replace(" ", "")) and len(username) > 0
 
 
 """
