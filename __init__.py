@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     if 'user' in session:
-        return render_template("home.html")
+        return render_template("feed.html")
     else:
         return render_template("index.html")
 
@@ -57,9 +57,9 @@ def logout():
     flash("You have successfully logged out of your account")
     return redirect(url_for("index"))
 
-@app.route("/home")
-def home():
-    return render_template("home.html")
+@app.route("/feed")
+def feed():
+    return render_template("feed.html")
 
  
 @app.route("/reset")

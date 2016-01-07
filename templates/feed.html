@@ -5,16 +5,6 @@
 {% endblock %}
 
 
-<!--  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  <ul class=flashes>
-    {% for message in messages %}
-    <li>{{ message }}
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  {% endwith %}-->
 
 <!-- Each row has 4 items, I've labeled the parts that we need to replace -->
 <!-- Need to replace the image, the title, the description -->
@@ -25,6 +15,18 @@
 {% block body %}
 <body id="body-home">
 
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+
+  
   <!--This serves as the darkening agent for individual item view -->
   <div class="view-cover"></div>
   <!-- End cover here -->
