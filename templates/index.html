@@ -9,7 +9,7 @@
 <body class="body">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
   </script>
-  
+
   {% with messages = get_flashed_messages() %}
   {% if messages %}
   <ul class=flashes>
@@ -20,8 +20,8 @@
   </ul>
   {% endif %}
   {% endwith %}
-  
-  
+
+
   <div class="table">
     <div class="cell" id="left">
       <h1 class="writing heavy whitetext">Welcome to Refresh
@@ -30,11 +30,11 @@
 </h2>
 <p class="writing light whitetext">
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis tristique ante, eget lobortis erat ullamcorper vel. Fusce imperdiet faucibus nunc id lobortis. Aliquam sed nibh eu velit volutpat dictum ac at turpis. Sed vel purus neque. Aenean elementum augue ac turpis luctus mollis. Praesent lectus magna, molestie sit amet elit vitae, accumsan fringilla leo. Quisque lacinia elit eget tortor placerat, sit amet venenatis orci pretium. Suspendisse ut odio eget nunc egestas semper. Duis gravida libero et libero lobortis ullamcorper. Praesent ut magna vitae tellus venenatis volutpat. Sed eget rhoncus sem. Sed sed aliquam velit. Nam id lobortis metus. Sed commodo libero in lacus condimentum, nec tincidunt turpis venenatis.
-  
+
   Nam mauris nulla, ultricies eget dui id, sagittis dignissim nulla. Vestibulum ex massa, tincidunt ut magna in, tempus scelerisque arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas sit amet dui sit amet turpis malesuada elementum sit amet at arcu. Suspendisse consectetur ornare dui ac dictum. Etiam vel mauris sed ligula consectetur euismod. Cras metus sem, tempus quis ligula vitae, feugiat tincidunt arcu.
-  
+
   Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus vitae iaculis nisl. Maecenas libero dui, laoreet at velit sed, eleifend dapibus sapien. Vivamus porttitor est et efficitur tristique. Nullam interdum, quam id efficitur fringilla, felis orci viverra eros, in lobortis nisi ex non dui. Morbi in velit sit amet ligula commodo facilisis. Etiam semper interdum scelerisque. Etiam gravida est non rhoncus finibus. Nam convallis odio ut nulla luctus, vitae mattis purus facilisis. Nunc bibendum imperdiet dolor, vitae eleifend nibh dignissim quis. Aliquam erat volutpat. Fusce in nisi faucibus, vestibulum ipsum id, pharetra augue. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-  
+
 </p>
 </div>
 
@@ -44,29 +44,26 @@
       <div class="row">
         <h1>Sign Up
 	</h1>
-	
+
         <div class="input-field col s12">
           <input name="username" placeholder="Name" id="first_name" type="text" class="validate writing form-control">
         </div>
-	
+
         <div class="input-field col s12">
           <input name="email" placeholder="Email" id="first_name" type="email" class="validate writing form-control">
         </div>
-	
+
         <div class="input-field col s12">
           <input name="password" placeholder="Password" id="first_name" type="password" class="validate writing form-control">
         </div>
       </div>
-      
+
       <div class="row">
-        <button type="submit" class="btn btn-default writing">Submit
-	</button>
+        <button type="submit" class="btn btn-default writing">Submit</button>
       </div>
-      
+
       <div class="row">
-        <small class="writing" >Have an account? Log in
-	  <a href="/customerlogin">here
-	  </a>!
+        <small class="writing" >Have an account? Log in<a href="/customerlogin"> here</a>!
 	</small>
 	<!-- ADD ROUTE HERE -->
       </div>
