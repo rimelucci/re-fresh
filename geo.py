@@ -82,7 +82,7 @@ def getDirections(origin,destination):
         print i[0]
         print i[1]
     
-print getDirections("75 Minna Street, 11218", "345 Chambers St, 10282")
+print getDirections("36-20 168th Street, 11358", "345 Chambers St, 10282")
 # print getClosest(["10282"],["Las Vegas","Grand Central Station", "Flushing, Queens","Los Angeles"],3)
 
 # print getCoordinates('345 Chambers St, NY, 10282')
