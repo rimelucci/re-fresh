@@ -17,6 +17,10 @@ Returns:
 def hash(text):
     return hashlib.sha256(text).hexdigest()
 
+"""
+~~-----------------------------USERS----------------------------------------~~
+"""
+
 
 """
 Checks whether username is allowed
@@ -48,33 +52,11 @@ def register_user(fullname, email, password):
     check = list(db.users.find({'email':email}))
     
     if check == []:
-        t = {'fullname':fullname, 'email': email, 'password':hash(password)}
+        t = {'fullname':fullname, 'email': email, 'password':hash(password), 'inventory':[]}
         db.users.insert(t)
         print fetch_all_users()
         return True
     print fetch_all_users()
-    return False
-
-"""
-Registers a store with name and password
-
-Args:
-    name - string with store name
-    password - password for the store
-
-Returns:
-    True if store does not exist
-    False if user already exists
-"""
-def register_store(name, password):
-    check = list(db.users.find({'name':name}))
-
-    if check == []:
-        t = {'name':name, 'password':hash(password)}
-        db.stores.insert(t)
-        print fetch_all_stores()
-        return True
-    print fetch_all_stores()
     return False
 
 """
@@ -99,25 +81,10 @@ def authenticate_user(email, password):
     return True
 
 """
-Authenticates store based on name and password
-
-Args:
-    name - store name
-    password - password
-
-Returns:
-    False if user is not registered or passwords do not match
-    True if password is successfully verified
+Adds an item to the user's cart
 """
-def authenticate_store(name, password):
-    check = list(db.stores.find({'name':name}))
-
-    if check == []:
-        return False
-    else:
-        if not check[0]['password'] == hash(password):
-            return False
-    return True
+def add_item(name, price):
+    return
 
 """
 Prints all users in database
@@ -133,6 +100,53 @@ def fetch_all_users():
     return list(users)
 
 """
+~~-----------------------------STORES----------------------------------------~~
+"""
+
+"""
+Registers a store with name and password
+
+Args:
+    name - string with store name
+    password - password for the store
+
+Returns:
+    True if store does not exist
+    False if store already exists
+"""
+def register_store(name, email, password):
+    check = list(db.stores.find({'email':email}))
+
+    if check == []:
+        t = {'name':name, 'email':email, 'password':hash(password)}
+        db.stores.insert(t)
+        print fetch_all_stores()
+        return True
+    print fetch_all_stores()
+    return False
+
+"""
+Authenticates store based on name and password
+
+Args:
+    name - store name
+    password - password
+
+Returns:
+    False if user is not registered or passwords do not match
+    True if password is successfully verified
+"""
+def authenticate_store(email, password):
+    check = list(db.stores.find({'email':email}))
+
+    if check == []:
+        return False
+    else:
+        if not check[0]['password'] == hash(password):
+            return False
+    return True
+
+"""
 Prints all stores in database
 
 Args:
@@ -144,6 +158,74 @@ Returns:
 def fetch_all_stores():
     stores = db.stores.find()
     return list(stores)
+
+"""
+~~-----------------------------ITEMS----------------------------------------~~
+"""
+
+"""
+Registers an item
+
+Args:
+    name - name of item
+    amount - amount of item to be offered
+    price - price of item
+    email - email that store is registering with
+
+Returns:
+    True if store is registered
+    False if store does not exist
+"""
+def register_item(name, amount, price, email):
+    check = list(db.stores.find({'email':email}))
+
+    if not check == []:
+        t = {'name':name, 'amount':amount, 'price':price, 'email':email}
+        db.items.insert(t)
+        print fetch_all_items()
+        return True
+    return False
+
+"""
+Purchase an item
+
+Args:
+    name - name of item
+    amount - amount if item to be bought
+    price - price of item
+    email - email that store used to registered with 
+
+Returns:
+    True if item exists for given amount
+    False if it does not exist
+"""
+def purchase_item(name, amount, price, email):
+    check = list(db.items.find({
+        'name':name,
+        'email':email
+    }))
+
+    print check
+    
+    if check == []:
+        return False
+    else:
+        if not check[0]['password'] == hash(password):
+            return False
+    return True
+
+"""
+Prints all items in database
+
+Args:
+    None
+
+Returns:
+    List of all items
+"""
+def fetch_all_items():
+    items = db.items.find()
+    return list(items)
 
 """
 TESTING ONLY
