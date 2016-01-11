@@ -68,7 +68,11 @@ def reset():
     print "DATABASE RESET"
     return redirect(url_for("logout"))
 
-    
+@app.route("/test")
+def testpage():
+    return render_template("testpage.html")
+
+
 if __name__ == "__main__":
     app.debug = True
     app.secret_key="secret"
