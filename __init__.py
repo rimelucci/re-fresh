@@ -1,7 +1,8 @@
 from flask import Flask, render_template, session, redirect
 from flask import url_for, request, flash, Markup
 import utils
-import stripe
+import stripeUtils
+import requests
 
 app = Flask(__name__)
 
@@ -72,8 +73,9 @@ def reset():
 @app.route("/test", methods=["GET","POST"])
 def testpage():
     if request.method == "POST":
-        token = request.form["stripeToken"]
+        token = requests.get["stripeToken"]
         flash(token)
+        stripeUtils.createCharge(1000,token.json(),"Test payment")
         return render_template("testpage.html")
     return render_template("testpage.html")
 
