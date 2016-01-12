@@ -1,6 +1,7 @@
 from flask import Flask, render_template, session, redirect
 from flask import url_for, request, flash, Markup
 import utils
+import stripe
 
 app = Flask(__name__)
 
