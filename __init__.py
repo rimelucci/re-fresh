@@ -68,8 +68,12 @@ def reset():
     print "DATABASE RESET"
     return redirect(url_for("logout"))
 
-@app.route("/test")
+@app.route("/test", methods=["GET","POST"])
 def testpage():
+    if request.method == "POST":
+        token = request.form["stripeToken"]
+        flash(token)
+        return render_template("testpage.html")
     return render_template("testpage.html")
 
 
