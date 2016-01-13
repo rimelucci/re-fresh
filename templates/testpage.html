@@ -1,5 +1,21 @@
-{% extends "testlayout.html" %}
-{% block content %}
+{% extends "master.html" %}
+
+{% block head %}
+{{ super() }}
+<style type="text/css" media="screen">
+  form article label {
+  display: block;
+  margin: 5px;
+  }
+  form .submit {
+  margin: 15px 0;
+  }
+</style>
+
+{% endblock %}
+
+
+{% block body %}
 <form action="/charge" method="post">
   <article>
     <label>Amount: $5.00</label>

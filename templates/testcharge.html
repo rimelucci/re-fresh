@@ -1,4 +1,10 @@
-{% extends "testlayout.html" %}
-{% block content %}
-<h2>Thanks, you payed <strong>$5.00</strong>!</h2>
+{% extends "master.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+
+{% block body  %}
+<h2>Thanks, you paid <strong>$5.00</strong>!</h2>
 {% endblock %}

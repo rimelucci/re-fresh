@@ -77,15 +77,6 @@ def reset():
     print "DATABASE RESET"
     return redirect(url_for("logout"))
 
-# @app.route("/test", methods=["GET","POST"])
-# def testpage():
-#     if request.method == "POST":
-#         token = requests.get["stripeToken"]
-#         flash(token)
-#         stripeUtils.createCharge(1000,token.json(),"Test payment")
-#         return render_template("testpage.html")
-#     return render_template("testpage.html")
-
 @app.route('/test')
 def test():
     return render_template('testpage.html', key=stripe_keys['publishable_key'])
