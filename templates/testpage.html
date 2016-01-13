@@ -1,32 +1,10 @@
-{% extends "master.html" %}
+{% extends "testlayout.html" %}
+{% block content %}
+<form action="/charge" method="post">
+  <article>
+    <label>Amount: $5.00</label>
+  </article>
 
-{% block head %}
-{{ super() }}
-{% endblock %}
-
-{% block body %}
-
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<ul class=flashes>
-  {% for message in messages %}
-  <li>{{ message }}</li>
-  {% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
-
-
-<form action="" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-    data-amount="2000"
-    data-name="Demo Site"
-    data-description="2 widgets ($20.00)"
-    data-image="/128x128.png"
-    data-locale="auto">
-  </script>
+  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="{{ key }}"></script>
 </form>
-
 {% endblock %}

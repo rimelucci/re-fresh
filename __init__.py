@@ -1,8 +1,15 @@
 from flask import Flask, render_template, session, redirect
 from flask import url_for, request, flash, Markup
 import utils
-import stripeUtils
-import requests
+import stripe
+import os
+
+stripe_keys = {
+    'secret_key': os.environ['SECRET_KEY'],
+    'publishable_key': os.environ['PUBLISHABLE_KEY']
+}
+
+stripe.api_key = stripe_keys['secret_key']
 
 app = Flask(__name__)
 
@@ -70,16 +77,38 @@ def reset():
     print "DATABASE RESET"
     return redirect(url_for("logout"))
 
-@app.route("/test", methods=["GET","POST"])
-def testpage():
-    if request.method == "POST":
-        token = requests.get["stripeToken"]
-        flash(token)
-        stripeUtils.createCharge(1000,token.json(),"Test payment")
-        return render_template("testpage.html")
-    return render_template("testpage.html")
+# @app.route("/test", methods=["GET","POST"])
+# def testpage():
+#     if request.method == "POST":
+#         token = requests.get["stripeToken"]
+#         flash(token)
+#         stripeUtils.createCharge(1000,token.json(),"Test payment")
+#         return render_template("testpage.html")
+#     return render_template("testpage.html")
 
+@app.route('/test')
+def test():
+    return render_template('testpage.html', key=stripe_keys['publishable_key'])
+  
+@app.route('/charge', methods=['POST'])
+def charge():
+  amount = 500
 
+  customer = stripe.Customer.create(
+      email='customer@example.com',
+      card=request.form['stripeToken']
+  )
+  
+  charge = stripe.Charge.create(
+      customer=customer.id,
+      amount=amount,
+      currency='usd',
+      description='Flask Charge'
+  )
+  
+  return render_template('testcharge.html', amount=amount)
+  
+  
 if __name__ == "__main__":
     app.debug = True
     app.secret_key="secret"
