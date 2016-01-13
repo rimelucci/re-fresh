@@ -177,12 +177,13 @@ Returns:
     False if store does not exist
 """
 def register_item(name, amount, price, email):
-    check = list(db.stores.find({'email':email}))
+    check = list(db.stores.find({'name':name, 'email':email}))
 
-    if not check == []:
+    amount = int(amount)
+    
+    if check == []:
         t = {'name':name, 'amount':amount, 'price':price, 'email':email}
         db.items.insert(t)
-        print fetch_all_items()
         return True
     return False
 
@@ -199,20 +200,31 @@ Returns:
     True if item exists for given amount
     False if it does not exist
 """
-def purchase_item(name, amount, price, email):
+def purchase_item(name, amount, email):
     check = list(db.items.find({
         'name':name,
         'email':email
     }))
 
-    print check
+    price = check[0]['price']
+    curr_amount = int(check[0]['amount'])
+    amount = int(amount)
+    difference = curr_amount-amount
     
-    if check == []:
-        return False
-    else:
-        if not check[0]['password'] == hash(password):
-            return False
-    return True
+    if amount < curr_amount:
+        db.items.update(
+            {
+                'name':name,
+                'email':email
+            },
+            {
+                'name':name,
+                'email':email,
+                'price':price,
+                'amount':difference
+            })
+        return True
+    return False
 
 """
 Prints all items in database
@@ -235,6 +247,7 @@ Resets database
 def reset():
     db.drop_collection('users')
     db.drop_collection('stores')
+    db.drop_collection('items')
 """
 ------------------------TESTING-------------------
 """
@@ -263,5 +276,11 @@ if __name__ == "__main__":
 
     print "\n---------------TESTING REGISTER_USER-----------------\n"
 
-    print register_store('Store', 'hello')
-    print register_store('Pandas', 'pass')
+    print register_store("dan", "email", "dan")
+    print register_item("apples", "2", "2.34", "email")
+
+    print fetch_all_items()
+    
+    print purchase_item("apples", "1", "email")
+
+    print fetch_all_items()
