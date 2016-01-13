@@ -11,6 +11,9 @@ stripe_keys = {
 
 stripe.api_key = stripe_keys['secret_key']
 
+# PUBLISHABLE_KEY=pk_test_q22x9CzkXFKlZCvHfqogCJCr SECRET_KEY=sk_test_N90VIt5oyKlvO5A3cszKznIr python app.py
+
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -77,13 +80,21 @@ def reset():
     print "DATABASE RESET"
     return redirect(url_for("logout"))
 
-@app.route('/test')
+@app.route('/test', methods=["GET", "POST"])
 def test():
-    return render_template('testpage.html', key=stripe_keys['publishable_key'])
+    if request.method == "GET":
+        return render_template('testpage.html', key=stripe_keys['publishable_key'])
+    # else:
+    #     # Insert code here: grabbing dollar amount from database
+    #     # and sending it into the flask "/charge" route
+    #     # to add custom payment amounts
+        
+    #     return render_template('testpage.html', key=stripe_keys['publishable_key'])
+        
   
 @app.route('/charge', methods=['POST'])
 def charge():
-  amount = 500
+  amount = 99999900
 
   customer = stripe.Customer.create(
       email='customer@example.com',
