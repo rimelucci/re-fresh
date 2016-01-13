@@ -1,6 +1,8 @@
 from flask import Flask, render_template, session, redirect
 from flask import url_for, request, flash, Markup
 import utils
+import stripeUtils
+import requests
 
 app = Flask(__name__)
 
@@ -68,8 +70,13 @@ def reset():
     print "DATABASE RESET"
     return redirect(url_for("logout"))
 
-@app.route("/test")
+@app.route("/test", methods=["GET","POST"])
 def testpage():
+    if request.method == "POST":
+        token = requests.get["stripeToken"]
+        flash(token)
+        stripeUtils.createCharge(1000,token.json(),"Test payment")
+        return render_template("testpage.html")
     return render_template("testpage.html")
 
 
