@@ -168,7 +168,7 @@ Registers an item
 
 Args:
     name - name of item
-    amount - amount of item to be offered
+    quantity - quantity of item to be offered
     price - price of item
     email - email that store is registering with
 
@@ -176,42 +176,41 @@ Returns:
     True if store is registered
     False if store does not exist
 """
-def register_item(name, amount, price, email):
-    check = list(db.stores.find({'name':name, 'email':email}))
+def register_item(name, quantity, price, email):
+    check = list(db.items.find({'name':name, 'email':email}))
 
-    amount = int(amount)
-    
+    quantity = int(quantity)
+
     if check == []:
-        t = {'name':name, 'amount':amount, 'price':price, 'email':email}
+        t = {'name':name, 'quantity':quantity, 'price':price, 'email':email}
         db.items.insert(t)
         return True
     return False
 
 """
-Purchase an item
+Add stock to an item
 
 Args:
-    name - name of item
-    amount - amount if item to be bought
-    price - price of item
-    email - email that store used to registered with 
+    name: name of item
+    quantity: quantity to add
+    email: email of store
 
 Returns:
-    True if item exists for given amount
-    False if it does not exist
+    True if store is registered
+    False if store does not exist
 """
-def purchase_item(name, amount, email):
+def add_quantity(name, quantity, email):
     check = list(db.items.find({
         'name':name,
         'email':email
     }))
 
-    price = check[0]['price']
-    curr_amount = int(check[0]['amount'])
-    amount = int(amount)
-    difference = curr_amount-amount
-    
-    if amount < curr_amount:
+    if not check == []:
+        price = check[0]['price']
+        curr_quantity = int(check[0]['quantity'])
+        quantity = int(quantity)
+        total = curr_quantity + quantity
+
         db.items.update(
             {
                 'name':name,
@@ -221,10 +220,93 @@ def purchase_item(name, amount, email):
                 'name':name,
                 'email':email,
                 'price':price,
-                'amount':difference
+                'quantity':total
             })
         return True
     return False
+
+"""
+Purchase an item
+
+Args:
+    name - name of item
+    quantity - quantity if item to be bought
+    price - price of item
+    email - email that store used to registered with 
+
+Returns:
+    True if item exists for given quantity
+    False if it does not exist
+"""
+def purchase_item(name, quantity, email):
+    check = list(db.items.find({
+        'name':name,
+        'email':email
+    }))
+
+    if not check == []:
+        price = check[0]['price']
+        curr_quantity = int(check[0]['quantity'])
+        quantity = int(quantity)
+        difference = curr_quantity-quantity
+        
+        if difference == 0:
+            remove_item(name,email)
+        
+        if quantity < curr_quantity:
+            db.items.update(
+                {
+                    'name':name,
+                    'email':email
+                },
+                {
+                    'name':name,
+                    'email':email,
+                    'price':price,
+                    'quantity':difference
+                })
+            return True
+    return False
+
+"""
+Get price and quantity from name and email
+
+Args:
+    name: name of item
+    email: email of store
+
+Return:
+    List of price and quantity, respectively
+    False if it doesn't exist
+"""
+
+def get_item_info(name, email):
+    check = list(db.items.find({
+        'name':name,
+        'email':email
+    }))
+
+    if not check == []:
+        price = check[0]['price']
+        quantity = int(check[0]['quantity'])
+        return [price, quantity]
+    return False
+
+"""
+Removes an item from the database
+
+Args:
+    name: name of item
+    email: email of store
+
+Returns:
+    None
+"""
+def remove_item(name, email):
+    db.items.remove({
+        'name':name,
+        'email':email
+    })
 
 """
 Prints all items in database
@@ -277,10 +359,12 @@ if __name__ == "__main__":
     print "\n---------------TESTING REGISTER_USER-----------------\n"
 
     print register_store("dan", "email", "dan")
-    print register_item("apples", "2", "2.34", "email")
+    print "REGISTER ITEM " + str(register_item("apples", "2", "2.34", "email"))
 
     print fetch_all_items()
     
-    print purchase_item("apples", "1", "email")
-
+    print purchase_item("apples", "2", "email")
+    print add_quantity("apples", "1", "email")
+    print get_item_info("apples", "email")
+    
     print fetch_all_items()
