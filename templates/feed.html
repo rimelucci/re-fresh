@@ -1,17 +1,44 @@
-{% extends "master.html" %}
+<!--{% extends "master.html" %}
 
 {% block head %}
 {{ super() }}
-{% endblock %}
+{% endblock %}-->
 
+<meta charset="utf-8">
+<title>Re-Fresh</title>
+<link rel="stylesheet" href="../static/styles.css" media="screen" title="main-styles" charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" media="screen" title="flatUI" charset="utf-8">
+<link href='https://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<!-- HEADER HERE ------->
+<header>
+  <div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper writing" style="padding-right: 5% ; padding-left: 5%">
+          <a href="/" class="brand-logo">Re-Fresh</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li>Hello PLACEHOLDER!</li>  <!-- ADD ROUTE HERE -->
+              <li><a href="#"><i class="material-icons">search</i></a></li>
+              <li><a href="#" id="shopping-cart"><i class="material-icons">shopping_cart</i></a></li>  <!-- ADD ROUTE HERE -->
+              <li><a href="/feed"><i class="material-icons">settings</i></a></li>
+            </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+<!---END HEADER -------->
 
 <!-- Each row has 4 items, I've labeled the parts that we need to replace -->
 <!-- Need to replace the image, the title, the description -->
 
 
 
-<!--BEGIN BODY -->
+<!--BEGIN BODY -
 {% block body %}
 <body id="body-home">
 
@@ -25,13 +52,97 @@
   </ul>
   {% endif %}
   {% endwith %}
+-->
 
-  
+<!---START CART code-->
+  <div id="cart" class="cart-onscreen" style="display: none">
+    <h3>Your Cart</h3>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+    <div class="row item">
+      <h5>Item Name</h5>
+      <i class="material-icons">stars</i>
+      <p style="float: right">
+        $200,000.00
+      </p>
+    </div>
+  </div>
+<!-- End Cart Code -->
+
+<body id="body-home">
+
   <!--This serves as the darkening agent for individual item view -->
   <div class="view-cover"></div>
   <!-- End cover here -->
 
-    <!---START CRAPPY CODE MIGHT JUST DELETE --->
       <div id="item-view" class="writing">
         <a href="#" id="close"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right"></span></a>
         <div class="row">
@@ -81,8 +192,7 @@
 
 
   <!--CONTAINER THAT HOLDS EVERYTHING -->
-  <div id="big-container" >
-
+  <div id="big-container">
         <div class="row banner">
 
         </div>
@@ -99,9 +209,9 @@
                 <h7>Store, Distance</h7> <!--Title of Item -->
                   <hr width="75%" style="margin: 1%">
                   <b> <!--Descripbion of item -->
-                      Price goes here
+                      $200,000.00
                   </b>
-                  <a class="waves-effect waves-light btn info">Add to Cart</a>
+<br>                  <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
           <!--END OF THE ITEM-->
@@ -113,8 +223,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -126,8 +236,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -139,8 +249,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -157,8 +267,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -170,8 +280,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -183,8 +293,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -196,8 +306,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -213,8 +323,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -226,8 +336,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -239,8 +349,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -252,8 +362,8 @@
                 <h7>Store, Distance</h7>
                 <hr width="75%" style="margin: 1%">
                 <b>
-                  Price goes here
-                </b>
+                  $200,000.00
+                </b><br>
                 <a class="waves-effect waves-light btn info">Add to Cart</a>
               </center>
             </div>
@@ -262,4 +372,4 @@
       <script src="/static/app.js"></script>
 </body>
 
-{% endblock %}
+<!--{% endblock %}-->

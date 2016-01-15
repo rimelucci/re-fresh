@@ -1,9 +1,5 @@
 html{
-  /*height: 100vh;*/
-}
-
-.navbarcolor{
-
+  height: 100vh;
 }
 
 .body{
@@ -14,8 +10,8 @@ html{
   background-blend-mode: multiply;
 }
 
-#body-home{
-  /*height: 100vh;*/
+#body-cart{
+  height: 100vh;
 }
 
 #right{
@@ -124,10 +120,10 @@ a{
 
 #big-container{
   background-color: white;
-  width: 75%;
-  left: 0; right: 0;
-  margin: auto;
   margin-top: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  position: relative;
 }
 
 .bordered{
@@ -163,4 +159,24 @@ a{
 
 .info{
   margin-top: 5%;
+}
+
+#cart{
+  position: fixed;
+  background-color: #E5E5E5;
+  width: 25%;
+  height: auto;
+  z-index: 999;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  overflow-y: auto;
+}
+
+.cart-onscreen{
+  right: 0;
+}
+
+.item{
+  height: 128px;
+  background-color: beige;
 }
