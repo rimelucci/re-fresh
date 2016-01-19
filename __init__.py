@@ -23,27 +23,26 @@ def index():
     else:
         return render_template("index.html")
 
-@app.route("/register", methods=["GET", "POST"])
-def register():
+@app.route("/customerregister", methods=["GET", "POST"])
+def customerregister():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
         email = request.form["email"]
-        if utils.check_username(username):
+        if utils.check_username(username) and utils.register_user(username,email,password):
             #if username is usable, then register user
-            utils.register_user(username,email,password)
             #print utils.fetch_all_users()
             flash('You have successfully registered a customer account')
-            return redirect(url_for("index"))
+            return redirect(url_for("customerlogin"))
         else:
             flash('Register failed')
-            return redirect(url_for("register"))
+            return redirect(url_for("customerregister"))
     #GET case
     else:
-        return render_template("register.html")
+        return render_template("customerregister.html")
 
 @app.route("/customerlogin", methods=["GET","POST"])
-def customer_login():
+def customerlogin():
     #GET case
     if request.method == "GET":
         return render_template("customerlogin.html")
@@ -61,8 +60,47 @@ def customer_login():
         #login fails
         else:
             flash("Your email and password do not match")
-            return redirect(url_for("customer_login"))
+            return redirect(url_for("customerlogin"))
 
+@app.route("/storeregister", methods=["GET","POST"])
+def storeregister():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        email = request.form["email"]
+        if utils.check_store(username) and utils.register_store(username,email,password):
+            #if username for store is usable, then register store
+            #print utils.fetch_all_storess()
+            flash('You have successfully registered a store account')
+            return redirect(url_for("storelogin"))
+        else:
+            flash('Register failed')
+            return redirect(url_for("storeregister"))
+    #GET case
+    else:
+        return render_template("storeregister.html")
+    
+@app.route("/storelogin", methods=["GET","POST"])
+def storelogin():        
+    #GET case
+    if request.method == "GET":
+        return render_template("storelogin.html")
+    #POST case
+    else:
+        username = request.form["username"]
+        password = request.form["password"]
+        if utils.authenticate_user(username,password):
+            #authenticate function
+            session['user'] = username
+            #session.permanent = True
+            #app.permanent_session_lifetime = timedelta(minutes=5)
+            flash('You have succesfully logged in as ' + username)
+            return redirect(url_for("index"))
+        #login fails
+        else:
+            flash("Your email and password do not match")
+            return redirect(url_for("storelogin"))
+        
 @app.route("/logout")
 def logout():
     session.pop('user', None)
