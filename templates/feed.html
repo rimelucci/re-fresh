@@ -1,9 +1,10 @@
-<!--{% extends "master.html" %}
+{% extends "master.html" %}
 
 {% block head %}
 {{ super() }}
-{% endblock %}-->
+{% endblock %}
 
+<!--
 <meta charset="utf-8">
 <title>Re-Fresh</title>
 <link rel="stylesheet" href="../static/styles.css" media="screen" title="main-styles" charset="utf-8">
@@ -11,10 +12,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" media="screen" title="flatUI" charset="utf-8">
 <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
-<!-- Compiled and minified CSS -->
+<!-- Compiled and minified CSS 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+-->
 
+{% block header %}
 <!-- HEADER HERE ------->
 <header>
   <div class="navbar-fixed">
@@ -31,28 +34,14 @@
     </nav>
   </div>
 </header>
+{% endblock %}
+
 <!---END HEADER -------->
 
 <!-- Each row has 4 items, I've labeled the parts that we need to replace -->
 <!-- Need to replace the image, the title, the description -->
 
 
-
-<!--BEGIN BODY -
-{% block body %}
-<body id="body-home">
-
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  <ul class=flashes>
-    {% for message in messages %}
-    <li>{{ message }}
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  {% endwith %}
--->
 
 <!---START CART code-->
   <div id="cart" class="cart-onscreen" style="display: none">
@@ -324,4 +313,3 @@
       <script src="/static/app.js"></script>
 </body>
 
-<!--{% endblock %}-->

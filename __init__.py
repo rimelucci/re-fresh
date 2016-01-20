@@ -19,7 +19,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     if 'user' in session:
-        return render_template("feed.html")
+        return redirect(url_for("feed"))
     else:
         return render_template("index.html")
 
