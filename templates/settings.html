@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Re-Fresh</title>
+    <link rel="stylesheet" href="../static/styles.css" media="screen" title="main-styles" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" media="screen" title="flatUI" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
+    <!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<!-- HEADER HERE ------->
+    <header>
+      <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper writing" style="padding-right: 5% ; padding-left: 5%">
+              <a href="/" class="brand-logo">Re-Fresh</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li>Hello PLACEHOLDER!</li>  <!-- ADD ROUTE HERE -->
+                  <li><a href="#"><i class="material-icons">search</i></a></li>
+                  <li><a href="#" id="shopping-cart"><i class="material-icons">shopping_cart</i></a></li>  <!-- ADD ROUTE HERE -->
+                  <li><a href="/feed"><i class="material-icons">settings</i></a></li>
+                </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+		<!---END HEADER -------->
+
+  </head>
+
+
+  <body class="writing">
+
+    <div class="view-cover"></div>
+
+    <div class="writing" id="setting-view">
+        <a href="#" id="close"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right"></span></a>
+        <div class="row">
+        </div>
+    </div>
+
+    <div class="settings horizontal-center">
+      <form class="" action="index.html" method="post">
+        <div class="row">
+          <h1>Settings</h1>
+          <hr width="100%" style="float: left">
+        </div>
+
+        <div class="row settings-section">
+          <div class="col s12 offset-s1">
+              <h4>Account Info</h4>
+              <div class="row">
+                  <div class="col s4">
+                    Email:
+                  </div>
+                  <div class="col s4">
+                    {{email}}
+                  </div>
+                  <div class="col s4">
+                    <a href="#" class="change-button">Change</a>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col s4">
+                     Password:
+                  </div>
+                  <div class="col s4">
+                    {{password}}
+                  </div>
+                  <div class="col s4">
+                    <a href="#" class="change-button">Change</a>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col s4">
+                     Location:
+                  </div>
+                  <div class="col s4">
+                    {{location}}
+                  </div>
+                  <div class="col s4">
+                    <a href="#" class="change-button">Update</a>
+                  </div>
+              </div>
+
+              <div class="row">
+                <hr width="75%">
+              </div>
+
+              <h4>Personal Info</h4>
+              <div class="row">
+                  <div class="col s4">
+                    Name:
+                  </div>
+                  <div class="col s4">
+                    {{name}}
+                  </div>
+                  <div class="col s4">
+                    <a href="#" class="change-button">Change</a>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col s4">
+                    Phone Number:
+                  </div>
+                  <div class="col s4">
+                    {{number}}
+                  </div>
+                  <div class="col s4">
+                    <a href="#" class="change-button">Change</a>
+                  </div>
+              </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

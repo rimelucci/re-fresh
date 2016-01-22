@@ -79,9 +79,9 @@ def storeregister():
     #GET case
     else:
         return render_template("storeregister.html")
-    
+
 @app.route("/storelogin", methods=["GET","POST"])
-def storelogin():        
+def storelogin():
     #GET case
     if request.method == "GET":
         return render_template("storelogin.html")
@@ -100,7 +100,7 @@ def storelogin():
         else:
             flash("Your email and password do not match")
             return redirect(url_for("storelogin"))
-        
+
 @app.route("/logout")
 def logout():
     session.pop('user', None)
@@ -111,7 +111,7 @@ def logout():
 def feed():
     return render_template("feed.html")
 
- 
+
 @app.route("/reset")
 def reset():
     utils.reset()
@@ -126,10 +126,10 @@ def test():
     #     # Insert code here: grabbing dollar amount from database
     #     # and sending it into the flask "/charge" route
     #     # to add custom payment amounts
-        
+
     #     return render_template('testpage.html', key=stripe_keys['publishable_key'])
-        
-  
+
+
 @app.route('/charge', methods=['POST'])
 def charge():
   amount = 99999900
@@ -138,17 +138,17 @@ def charge():
       email='customer@example.com',
       card=request.form['stripeToken']
   )
-  
+
   charge = stripe.Charge.create(
       customer=customer.id,
       amount=amount,
       currency='usd',
       description='Flask Charge'
   )
-  
+
   return render_template('testcharge.html', amount=amount)
-  
-  
+
+
 if __name__ == "__main__":
     app.debug = True
     app.secret_key="secret"
