@@ -184,10 +184,9 @@ a{
 }
 
 #add-item{
-  width: 75%;
   background-color: #E5E5E5;
   margin-top: 2.5%;
-  padding: 1%;
+  padding: 5%;
   border-radius: 15px;
 }
 
