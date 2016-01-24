@@ -5,16 +5,10 @@ import stripe
 import os
 import item_parse
 
-
 # stripe_keys = {
 #     'secret_key': os.environ['SECRET_KEY'],
 #     'publishable_key': os.environ['PUBLISHABLE_KEY']
 # }
-
-# stripe.api_key = stripe_keys['secret_key']
-
-# PUBLISHABLE_KEY=pk_test_q22x9CzkXFKlZCvHfqogCJCr SECRET_KEY=sk_test_N90VIt5oyKlvO5A3cszKznIr python app.py
-
 
 app = Flask(__name__)
 

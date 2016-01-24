@@ -81,10 +81,55 @@ def authenticate_user(email, password):
     return True
 
 """
-Adds an item to the user's cart
+Gets the cart of a given user
+
+Args:
+  email: email of user
+
+Return:
+  cart as a list of JSON objects
 """
-def add_item(name, price):
-    return
+def get_user_cart(email):
+    check = list(db.users.find({'email': email}))
+    cart = check[0]['inventory']
+    return cart
+
+"""
+Adds an item to the user's cart
+
+Args:
+  i_name: item name
+  i_email: item email (email under wich the item is registered)
+  u_email: user email
+  quantity: quantity of item user wishes to buy
+
+Return:
+  True if user exists
+  False if user does not exist
+"""
+def add_cart(i_name, i_email, u_email, quantity):
+    check = list(db.users.find({'email':u_email}))
+    item = {'name': i_name, 'email': i_email, 'quantity': quantity}
+
+    if check != []:
+        original = check[0]['inventory']
+
+        print "ORIGINAL" + str(original)
+    
+        original.append(item)
+    
+        db.users.update(
+            {
+                'email': u_email
+            },
+            {'$set':
+             {
+                 "inventory": original
+             }
+         }
+        )
+        return True
+    return False
 
 """
 Prints all users in database
@@ -334,8 +379,6 @@ def reset():
 ------------------------TESTING-------------------
 """
 if __name__ == "__main__":
-    db.drop_collection('users')
-
     print "\n---------------TESTING REGISTER_USER-----------------\n"
     
     print register_user('Young Kim', 'kim.thunderbird@gmail.com', 'password')
@@ -372,10 +415,16 @@ if __name__ == "__main__":
     print register_item("bacon and cheese","2","3.50","email")
     print fetch_all_items()
     
-    # print purchase_item("apples", "2", "email")
-    # print add_quantity("apples", "1", "email")
-    # print get_item_info("apples", "email")
-    
-    # print fetch_all_items()
+    print purchase_item("apples", "1", "email")
+    print add_quantity("apples", "1", "email")
+    print get_item_info("apples", "email")
 
+    print "\n---------------TESTING REGISTER_USER-----------------\n"
+
+    fetch_all_users()
+    add_cart('apples','email','derricklui@gmail.com',3)
+    add_cart("chicken wings", "email", 'derricklui@gmail.com', 1)
+
+    print "\n---------------TESTING REGISTER_USER-----------------\n"
     
+    print get_user_cart("derricklui@gmail.com")
