@@ -360,7 +360,16 @@ if __name__ == "__main__":
 
     print register_store("dan", "email", "dan")
     print "REGISTER ITEM " + str(register_item("apples", "2", "2.34", "email"))
-    print register_item("bagels","2","3.50","email")
+    print register_item("chicken wings","2","3.50","email")
+    print register_item("popcorn chicken","2","3.50","email")
+    print register_item("roma panini","2","3.50","email")
+    print register_item("bacon egg and cheese","2","3.50","email")
+    print register_item("chicken quesadilla","2","3.50","email")
+    print register_item("southwestern panini","2","3.50","email")
+    print register_item("bacon avocado chipotle","2","3.50","email")
+    print register_item("teriyaki chicken with rice","2","3.50","email")
+    print register_item("chicken fajita panini","2","3.50","email")
+    print register_item("bacon and cheese","2","3.50","email")
     print fetch_all_items()
     
     # print purchase_item("apples", "2", "email")

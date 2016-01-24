@@ -30,7 +30,19 @@ def mongo_feed():
     output = ""
     for item in raw:
         if (counter == 0):
-            output += """<div class="row">"""
+            output +="""
+            <div class="row">
+            <div class="col s3 white entry writing">
+            <center>
+            <i class="large material-icons">stars</i>"""
+            
+            output = output + "<h5>" + item['name'] + "</h5><h7>" + item['email'] + """, Distance</h7>
+            <hr width="75%" style="margin: 1%"><b>$""" + item['price'] + """</b><br>
+            <a class="waves-effect waves-light btn info">Add to Cart</a>
+            </center>
+            </div>
+            """
+        if ((counter > 0)&(counter < 3)):
             output +="""
             <div class="col s3 white entry writing">
             <center>
@@ -42,19 +54,7 @@ def mongo_feed():
             </center>
             </div>
             """
-        if ((counter > 0)&(counter < 4)):
-            output +="""
-            <div class="col s3 white entry writing">
-            <center>
-            <i class="large material-icons">stars</i>"""
-            
-            output = output + "<h5>" + item['name'] + "</h5><h7>" + item['email'] + """, Distance</h7>
-            <hr width="75%" style="margin: 1%"><b>$""" + item['price'] + """</b><br>
-            <a class="waves-effect waves-light btn info">Add to Cart</a>
-            </center>
-            </div>
-            """
-        if (counter == 4):
+        if (counter == 3):
             output +="""
             <div class="col s3 white entry writing">
             <center>
@@ -67,11 +67,11 @@ def mongo_feed():
             </div>
             """
             output += "</div>"
-            counter = 0
-
+            counter = -1
+            
         counter += 1
 
-    if (counter != 4):
+    if (counter != 3):
         output += "</div>"
 
     return output
