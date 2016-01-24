@@ -360,11 +360,13 @@ if __name__ == "__main__":
 
     print register_store("dan", "email", "dan")
     print "REGISTER ITEM " + str(register_item("apples", "2", "2.34", "email"))
+    print register_item("bagels","2","3.50","email")
+    print fetch_all_items()
+    
+    # print purchase_item("apples", "2", "email")
+    # print add_quantity("apples", "1", "email")
+    # print get_item_info("apples", "email")
+    
+    # print fetch_all_items()
 
-    print fetch_all_items()
     
-    print purchase_item("apples", "2", "email")
-    print add_quantity("apples", "1", "email")
-    print get_item_info("apples", "email")
-    
-    print fetch_all_items()
