@@ -110,7 +110,7 @@ Return:
   True if user exists
   False if user does not exist
 """
-def add_cart(i_name, i_email="default", u_email, quantity):
+def add_cart(i_name, i_email  , u_email, quantity):
     check = list(db.users.find({'email':u_email}))
     item = {'name': i_name, 'email': i_email, 'quantity': quantity}
 
@@ -228,7 +228,7 @@ Returns:
     True if store is registered
     False if store does not exist
 """
-def register_item(name, quantity, price, email="default"):
+def register_item(name, quantity, price, email):
     check = list(db.items.find({'name':name, 'email':email}))
 
     quantity = int(quantity)
@@ -251,7 +251,7 @@ Returns:
     True if store is registered
     False if store does not exist
 """
-def add_quantity(name, quantity, email="default"):
+def add_quantity(name, quantity, email):
     check = list(db.items.find({
         'name':name,
         'email':email
@@ -290,7 +290,7 @@ Returns:
     True if item exists for given quantity
     False if it does not exist
 """
-def purchase_item(name, quantity, email="default"):
+def purchase_item(name, quantity, email):
     check = list(db.items.find({
         'name':name,
         'email':email
@@ -332,7 +332,7 @@ Return:
     False if it doesn't exist
 """
 
-def get_item_info(name, email="default"):
+def get_item_info(name, email):
     check = list(db.items.find({
         'name':name,
         'email':email
@@ -354,7 +354,7 @@ Args:
 Returns:
     None
 """
-def remove_item(name, email="default"):
+def remove_item(name, email):
     db.items.remove({
         'name':name,
         'email':email
