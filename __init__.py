@@ -71,7 +71,7 @@ def storeregister():
             return redirect(url_for("storelogin"))
         else:
             flash('Register failed')
-            return redirect(url_for("storelogin"))
+            return redirect(url_for("storeregister"))
     #GET case
     else:
         return render_template("storeregister.html")
@@ -85,7 +85,7 @@ def storelogin():
     else:
         username = request.form["username"]
         password = request.form["password"]
-        if utils.authenticate_user(username,password):
+        if utils.authenticate_store(username,password):
             #authenticate function
             session['user'] = username
             #session.permanent = True
@@ -148,7 +148,7 @@ def charge():
 
 @app.route('/settings')
 def settings():
-    return render_template('settings.html', username = sesstion['user'])
+    return render_template('settings.html', username = session['user'])
 
 
 if __name__ == "__main__":
