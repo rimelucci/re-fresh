@@ -36,7 +36,7 @@ def mongo_feed():
             <center>
             <i class="large material-icons">stars</i>"""
             
-            output = output + "<h5>" + item['name'] +", qty: " + str(item['quantity']) + "</h5><h7>" + item['email'] + """, Distance</h7>
+            output = output + "<h5>" + item['name'] + "</h5><h7>"+"qty: " + str(item['quantity'])  +" | "+ item['email'] + """, Distance</h7>
             <hr width="75%" style="margin: 1%"><b>$""" + item['price'] + """</b><br>
             <a class="waves-effect waves-light btn info">Add to Cart</a>
             </center>
@@ -48,7 +48,7 @@ def mongo_feed():
             <center>
             <i class="large material-icons">stars</i>"""
             
-            output = output + "<h5>" + item['name'] + ", qty: " + str(item['quantity']) + "</h5><h7>" + item['email'] + """, Distance</h7>
+            output = output + "<h5>" + item['name']+ "</h5><h7>" + item['email'] + """, Distance</h7>
             <hr width="75%" style="margin: 1%"><b>$""" + item['price'] + """</b><br>
             <a class="waves-effect waves-light btn info">Add to Cart</a>
             </center>

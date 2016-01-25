@@ -127,7 +127,7 @@ def test():
 
 @app.route('/charge', methods=['POST'])
 def charge():
-  amount = 99999900
+  amount = 9900
 
   customer = stripe.Customer.create(
       email='customer@example.com',
