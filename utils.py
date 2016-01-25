@@ -148,6 +148,10 @@ def fetch_all_users():
 ~~-----------------------------STORES----------------------------------------~~
 """
 
+def check_store(username):
+    return not re.search('[^a-zA-Z\s]', username) and len(username) > 0
+
+
 """
 Registers a store with name and password
 
