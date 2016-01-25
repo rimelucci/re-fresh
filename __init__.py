@@ -106,7 +106,7 @@ def logout():
 @app.route("/feed")
 def feed():
     mongofeed = item_parse.mongo_feed()
-    mongocart = item_parse.create_cart("derricklui@gmail.com")
+    mongocart = item_parse.create_cart(session['user'])
     return render_template("feed.html",feed = mongofeed,cart = mongocart)
 
 
