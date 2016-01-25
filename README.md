@@ -28,7 +28,7 @@ Fully implemented:
 - Python
   - Flask
   
-Ready for implementation, but not yet integrated in current version:
+Functions completed and ready for implementation, should be finished by 1/27/16:
 - Geo API
 - Stripe API
 
