@@ -91,8 +91,11 @@ Return:
 """
 def get_user_cart(email):
     check = list(db.users.find({'email': email}))
-    cart = check[0]['inventory']
-    return cart
+
+    if check != []:
+        cart = check[0]['inventory']
+        return cart
+    return []
 
 """
 Adds an item to the user's cart

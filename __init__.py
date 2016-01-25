@@ -15,7 +15,10 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     if 'user' in session:
-        return redirect(url_for("feed"))
+        if session['user'] == 0:
+            return redirect(url_for("feed"))
+        else:
+            return redirect(url_for("additem"))
     else:
         return render_template("index.html")
 
@@ -28,10 +31,8 @@ def customerregister():
         if utils.check_username(username) and utils.register_user(username,email,password):
             #if username is usable, then register user
             #print utils.fetch_all_users()
-            flash('You have successfully registered a customer account')
             return redirect(url_for("customerlogin"))
         else:
-            flash('Register failed')
             return redirect(url_for("customerregister"))
     #GET case
     else:
@@ -48,14 +49,12 @@ def customerlogin():
         password = request.form["password"]
         if utils.authenticate_user(username,password):
             #authenticate function
-            session['user'] = username
+            session['user'] = 0
             #session.permanent = True
             #app.permanent_session_lifetime = timedelta(minutes=5)
-            flash('You have succesfully logged in as ' + username)
             return redirect(url_for("index"))
         #login fails
         else:
-            flash("Your email and password do not match")
             return redirect(url_for("customerlogin"))
 
 @app.route("/storeregister", methods=["GET","POST"])
@@ -67,10 +66,8 @@ def storeregister():
         if utils.check_store(username) and utils.register_store(username,email,password):
             #if username for store is usable, then register store
             #print utils.fetch_all_storess()
-            flash('You have successfully registered a store account')
             return redirect(url_for("storelogin"))
         else:
-            flash('Register failed')
             return redirect(url_for("storeregister"))
     #GET case
     else:
@@ -87,11 +84,10 @@ def storelogin():
         password = request.form["password"]
         if utils.authenticate_store(username,password):
             #authenticate function
-            session['user'] = username
+            session['user'] = 1
             #session.permanent = True
             #app.permanent_session_lifetime = timedelta(minutes=5)
-            flash('You have succesfully logged in as store: ' + username)
-            return redirect(url_for("index"))
+            return redirect(url_for("additem"))
         #login fails
         else:
             flash("Your email and password do not match")
@@ -100,7 +96,6 @@ def storelogin():
 @app.route("/logout")
 def logout():
     session.pop('user', None)
-    flash("You have successfully logged out of your account")
     return redirect(url_for("index"))
 
 @app.route("/feed")
