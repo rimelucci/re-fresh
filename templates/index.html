@@ -1,16 +1,45 @@
-{% extends "master.html" %}
+<!--{% extends "master.html" %}
 
 {% block head %}
 {{ super() }}
 {% endblock %}
 
-{% block body %}
+{% block body %}-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Re-Fresh</title>
+    <link rel="stylesheet" href="../static/styles.css" media="screen" title="main-styles" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" media="screen" title="flatUI" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
+    <!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<!-- HEADER HERE ------->
+		<header>
+			<nav>
+				<div class="nav-wrapper" style="padding-right: 2.5% ; padding-left: 5%">
+					<a href="/" class="brand-logo writing">Re-Fresh</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li class="writing"><a href="/">Home</a></li>  <!-- ADD ROUTE HERE -->
+						<li class="writing"><a href="/customerlogin">For Customers</a></li>  <!-- ADD ROUTE HERE -->
+						<li class="writing"><a href="/storelogin">For Providers</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!---END HEADER -------->
 
 <body class="body">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
   </script>
 
-  {% with messages = get_flashed_messages() %}
+  <!--{% with messages = get_flashed_messages() %}
   {% if messages %}
   <ul class=flashes>
     {% for message in messages %}
@@ -19,7 +48,7 @@
     {% endfor %}
   </ul>
   {% endif %}
-  {% endwith %}
+  {% endwith %}-->
 
 
   <div class="table">
@@ -28,14 +57,7 @@
       </h1>
       <h3 class="writing whitetext">With Re-Fresh, you save money, stores make more money, and less food goes to waste
 </h2>
-<p class="writing light whitetext">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis tristique ante, eget lobortis erat ullamcorper vel. Fusce imperdiet faucibus nunc id lobortis. Aliquam sed nibh eu velit volutpat dictum ac at turpis. Sed vel purus neque. Aenean elementum augue ac turpis luctus mollis. Praesent lectus magna, molestie sit amet elit vitae, accumsan fringilla leo. Quisque lacinia elit eget tortor placerat, sit amet venenatis orci pretium. Suspendisse ut odio eget nunc egestas semper. Duis gravida libero et libero lobortis ullamcorper. Praesent ut magna vitae tellus venenatis volutpat. Sed eget rhoncus sem. Sed sed aliquam velit. Nam id lobortis metus. Sed commodo libero in lacus condimentum, nec tincidunt turpis venenatis.
-
-  Nam mauris nulla, ultricies eget dui id, sagittis dignissim nulla. Vestibulum ex massa, tincidunt ut magna in, tempus scelerisque arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas sit amet dui sit amet turpis malesuada elementum sit amet at arcu. Suspendisse consectetur ornare dui ac dictum. Etiam vel mauris sed ligula consectetur euismod. Cras metus sem, tempus quis ligula vitae, feugiat tincidunt arcu.
-
-  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus vitae iaculis nisl. Maecenas libero dui, laoreet at velit sed, eleifend dapibus sapien. Vivamus porttitor est et efficitur tristique. Nullam interdum, quam id efficitur fringilla, felis orci viverra eros, in lobortis nisi ex non dui. Morbi in velit sit amet ligula commodo facilisis. Etiam semper interdum scelerisque. Etiam gravida est non rhoncus finibus. Nam convallis odio ut nulla luctus, vitae mattis purus facilisis. Nunc bibendum imperdiet dolor, vitae eleifend nibh dignissim quis. Aliquam erat volutpat. Fusce in nisi faucibus, vestibulum ipsum id, pharetra augue. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-
-</p>
+<center><iframe width="75%" height="315" style="border-radius: 15px" src="https://www.youtube.com/embed/Kez5tk38MMs" frameborder="0" allowfullscreen></iframe></center>
 </div>
 
 <div class="cell2" id="right" >
@@ -81,4 +103,4 @@
 </html>
 
 
-{% endblock %}
+<!--{% endblock %}-->
