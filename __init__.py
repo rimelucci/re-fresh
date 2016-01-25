@@ -148,7 +148,7 @@ def charge():
 
 @app.route('/settings')
 def settings():
-    return render_template('settings.html')
+    return render_template('settings.html', username = sesstion['user'])
 
 
 if __name__ == "__main__":
