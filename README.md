@@ -22,7 +22,12 @@ Our project aims to reduce waste from places that have to sell their leftover fo
 
 ## Tools
 
+Fully implemented:
+- Materialize
+- Python
+  - Flask
+  
+Ready for implementation, but not yet integrated in current version:
 - Geo API
 - Stripe API
-- PhoneGap
 
