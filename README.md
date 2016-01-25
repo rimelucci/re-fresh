@@ -1,6 +1,6 @@
 # Re-fresh
 
-Live at: *http://104.236.207.202/*
+Live at: **http://104.236.207.202/**
 
 Our project aims to reduce waste from places that have to sell their leftover food by the end of the day. 
   - Many stores and restaurants offer discounts at the end of the day on foods that would spoil or lose quality overnight.
