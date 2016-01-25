@@ -432,3 +432,5 @@ if __name__ == "__main__":
     print "\n---------------TESTING REGISTER_USER-----------------\n"
     
     print get_user_cart("derricklui@gmail.com")
+    print register_store("ferrys","ferrys","ferrys")
+    print authenticate_store("ferrys","ferrys")
