@@ -50,6 +50,7 @@ def customerlogin():
         if utils.authenticate_user(username,password):
             #authenticate function
             session['user'] = 0
+            session['name'] = username
             #session.permanent = True
             #app.permanent_session_lifetime = timedelta(minutes=5)
             return redirect(url_for("index"))
@@ -85,6 +86,7 @@ def storelogin():
         if utils.authenticate_store(username,password):
             #authenticate function
             session['user'] = 1
+            session['name'] = username
             #session.permanent = True
             #app.permanent_session_lifetime = timedelta(minutes=5)
             return redirect(url_for("additem"))
@@ -102,7 +104,7 @@ def logout():
 def feed():
     mongofeed = item_parse.mongo_feed()
     mongocart = item_parse.create_cart(session['user'])
-    return render_template("feed.html",feed = mongofeed,cart = mongocart,username = session['user'])
+    return render_template("feed.html",feed = mongofeed,cart = mongocart,username = session['name'])
 
 
 @app.route("/reset")
@@ -146,9 +148,16 @@ def settings():
     return render_template('settings.html', username = session['user'])
 
 
-@app.route('/additem')
+@app.route('/additem', methods=["GET", "POST"])
 def additem():
-    return render_template('additem.html')
+    if request.method == 'POST':
+        product = request.form['productname']
+        price = request.form['price']
+        quantity = request.form['quantity']
+        utils.register_item(product, quantity, price, session['name'])
+        return redirect(url_for('feed'))
+    else:
+        return render_template('additem.html')
 
 
 if __name__ == "__main__":
