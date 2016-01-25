@@ -38,6 +38,7 @@ Ready for implementation, but not yet integrated in current version:
   - Purchase items (implementing Stripe API later)
   - Feed and user cart are dynamically updated.
   - User can change settings.
+  - *The green block on the feed will show featured items*
 
 ###Stores:
   - Add items to live feed for sale.
