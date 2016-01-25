@@ -2,6 +2,8 @@
 
 **Project is now live at: http://104.236.207.202/**
 
+**Link to Video: https://www.youtube.com/watch?v=V3UU3nYwfF8**
+
 Our project aims to reduce waste from places that have to sell their leftover food by the end of the day. 
   - Many stores and restaurants offer discounts at the end of the day on foods that would spoil or lose quality overnight.
   - With Re-Fresh, stores can post food that they need to sell by the end of the day and the discounted price they are selling for.
