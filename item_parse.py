@@ -83,6 +83,7 @@ def create_feed():
     return output
 
 
+
 def create_cart(email):
     rawfeed = utils.get_user_cart(email)
     output = """
@@ -98,13 +99,16 @@ def create_cart(email):
         </p>
         </div>
         """
-    output += "</div>"
-    return output
+    output += """<center><a class="waves-effect waves-light btn" >
+    Proceed to Checkout</a>
+    </center></div>"""
         
- 
-print create_cart("derricklui1@gmail.com")
-  # <div id="cart" class="cart-onscreen" style="display: none">
-  #   <h3>Your Cart</h3>
+    return output
+
+    # print create_cart("derricklui@gmail.com")
+
+    # <div id="cart" class="cart-onscreen" style="display: none">
+    #   <h3>Your Cart</h3>
     # <div class="row item">
     #   <h5>Item Name</h5>
     #   <i class="material-icons">stars</i>
@@ -133,5 +137,5 @@ print create_cart("derricklui1@gmail.com")
   #       $200,000.00
   #     </p>
   #   </div>
-  #   <center><a class="waves-effect waves-light btn" >Proceed to Checkout</a></center> <!--CONNECT THIS TO PAYMENT PAGE-->
+    
   # </div>
