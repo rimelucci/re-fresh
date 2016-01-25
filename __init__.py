@@ -145,7 +145,7 @@ def charge():
 
 @app.route('/settings')
 def settings():
-    return render_template('settings.html', username = session['user'])
+    return render_template('settings.html', username = session['name'])
 
 
 @app.route('/additem', methods = ["GET","POST"])

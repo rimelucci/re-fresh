@@ -18,7 +18,6 @@ funstring="""
             """
 
 items = []
-raw = utils.fetch_all_items()
 
 # print raw
 
@@ -26,6 +25,7 @@ raw = utils.fetch_all_items()
 #     print thing['name'], thing['email'], thing['price'], thing['quantity']
 
 def mongo_feed():
+    raw = utils.fetch_all_items()
     counter = 0
     output = ""
     for item in raw:
