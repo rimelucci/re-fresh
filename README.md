@@ -1,38 +1,45 @@
 # Re-fresh
 
-Project aiming to reduce waste from places that have to sell their leftover food by the end of the day. 
+**Project is now live at: http://104.236.207.202/**
+
+Our project aims to reduce waste from places that have to sell their leftover food by the end of the day. 
   - Many stores and restaurants offer discounts at the end of the day on foods that would spoil or lose quality overnight.
   - With Re-Fresh, stores can post food that they need to sell by the end of the day and the discounted price they are selling for.
-  - Users can search within a specific radius for places that are currently offering discounts.
-  - Users can view a live feed of posts from food institutions nearby.
+
 
 ##With Re-Fresh, you save money, stores make more money, and less food goes to waste
 ###It's a win-win-win!
 
-
-
 ## Overview
 
-| Role       | Name         |
-|------------|--------------|
-| Leader     | Rick Melucci |
-| Backend    | Young Kim    |
-| Middleware | Derrick Lui  |
-| UX         | Aaron Wang   |
+| Role        | Name            |
+|-------------|--------------   |
+| Leader + UX | Rick Melucci    |
+| Backend     |  Young Kim      |
+| Middleware  |  Derrick Lui    |
+| Middleware  |  Aaron Wang     |
 
 ## Tools
 
-- Some Frameworks we're looking at:
-  - Angular.js 2.0
-  - Backbone.js
-  - Node.js
-- Aaron wonga
+Fully implemented:
+- Materialize
+- Python
+  - Flask
+  
+Ready for implementation, but not yet integrated in current version:
 - Geo API
-- Paypal API (in the future)
-- PhoneGap
+- Stripe API
 
-##Long Term Squad Goals
-  1.  Planning on implementing online payment (PayPal API) in the future
-  2.  PhoneGap to create mobile app in the future
-  3.  Present New York Tech Meetup
-  4.  Become billionaires (whether through this project or not!)
+##Functions:
+
+###Customers:
+  - View a live feed of posts from food institutions nearby.
+  - Add food items to cart.
+  - Purchase items (implementing Stripe API later)
+  - Feed and user cart are dynamically updated.
+  - User can change settings.
+
+###Stores:
+  - Add items to live feed for sale.
+  - Receive payments from Stripe API (implemented later)
+
