@@ -98,6 +98,7 @@ def create_cart(email):
         </p>
         </div>
         """
+    output += "</div>"
     return output
         
  
