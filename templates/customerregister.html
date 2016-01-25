@@ -6,20 +6,21 @@
 
 {% block body %}
 
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<ul class=flashes>
-  {% for message in messages %}
-  <li>{{ message }}</li>
-  {% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
 <body class="body">
 		<div id="login-form" class="center">
 			<form method="POST">
 				<div class="row">
 					<h1 class="writing">Sign up</h1>
+
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          {% endwith %}
 
           <div class="input-field col s8 offset-s2">
             <input name="username" type="text" class="validate writing form-control" placeholder="Name">

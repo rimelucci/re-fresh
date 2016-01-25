@@ -11,17 +11,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
   </script>
 
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  <ul class=flashes>
-    {% for message in messages %}
-    <li>{{ message }}
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  {% endwith %}
-
 
   <div class="table">
     <div class="cell" id="left">
@@ -36,8 +25,19 @@
   <div id="form-holder" class="writing">
     <form id="form" class="horizontal-center" method="POST" action="/customerregister">
       <div class="row">
-        <h1>Sign Up
-	</h1>
+        <h1>Sign Up</h1>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+          {% for message in messages %}
+          <li>{{ message }}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
 
         <div class="input-field col s12">
           <input name="username" placeholder="Name" id="first_name" type="text" class="validate writing form-control">
