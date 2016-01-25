@@ -81,60 +81,56 @@ def create_feed():
     for item in items:
         output += funstring.replace()
     return output
-    
 
-# <!-- START ROW HERE -->
-      # <div class="row">
-      #       <div class="col s3 white entry writing">
-      #         <center>
-      #           <i class="large material-icons">stars</i>
-            #     <h5>New Item</h5> NAME OF ITEM
-            #     <h7>Store, Distance</h7> STORE, DISTANCE
-            #     <hr width="75%" style="margin: 1%">
-            #     <b>
-            #       $200,000.00 PRICE
-            #     </b><br>
-            #     <a class="waves-effect waves-light btn info">Add to Cart</a>
-            #   </center>
-            # </div>
 
-#             <div class="col s3 white entry writing">
-#               <center>
-#                 <i class="large material-icons">stars</i>
-#                 <h5>New Item</h5>
-#                 <h7>Store, Distance</h7>
-#                 <hr width="75%" style="margin: 1%">
-#                 <b>
-#                   $200,000.00
-#                 </b><br>
-#                 <a class="waves-effect waves-light btn info">Add to Cart</a>
-#               </center>
-#             </div>
-
-#             <div class="col s3 white entry writing">
-#               <center>
-#                 <i class="large material-icons">stars</i>
-#                 <h5>New Item</h5>
-#                 <h7>Store, Distance</h7>
-#                 <hr width="75%" style="margin: 1%">
-#                 <b>
-#                   $200,000.00
-#                 </b><br>
-#                 <a class="waves-effect waves-light btn info">Add to Cart</a>
-#               </center>
-#             </div>
-
-#             <div class="col s3 white entry writing">
-#               <center>
-#                 <i class="large material-icons">stars</i>
-#                 <h5>New Item</h5>
-#                 <h7>Store, Distance</h7>
-#                 <hr width="75%" style="margin: 1%">
-#                 <b>
-#                   $200,000.00
-#                 </b><br>
-#                 <a class="waves-effect waves-light btn info">Add to Cart</a>
-#               </center>
-#             </div>
-#       </div>
-#       <!-- END ROW HERE -->
+def create_cart(email):
+    rawfeed = utils.get_user_cart(email)
+    output = """
+    <div id="cart" class="cart-onscreen" style="display: none">
+    <h3>Your Cart</h3>
+    """
+    for item in rawfeed:
+        output = output + """
+        <div class="row item">
+        <h5>""" + item['name'] +"""</h5>
+        <i class="material-icons">stars</i>
+        <p style="float: right">""" + """
+        </p>
+        </div>
+        """
+    return output
+        
+ 
+print create_cart("derricklui1@gmail.com")
+  # <div id="cart" class="cart-onscreen" style="display: none">
+  #   <h3>Your Cart</h3>
+    # <div class="row item">
+    #   <h5>Item Name</h5>
+    #   <i class="material-icons">stars</i>
+    #   <p style="float: right">
+    #     $200,000.00
+    #   </p>
+    # </div>
+  #   <div class="row item">
+  #     <h5>Item Name</h5>
+  #     <i class="material-icons">stars</i>
+  #     <p style="float: right">
+  #       $200,000.00
+  #     </p>
+  #   </div>
+  #   <div class="row item">
+  #     <h5>Item Name</h5>
+  #     <i class="material-icons">stars</i>
+  #     <p style="float: right">
+  #       $200,000.00
+  #     </p>
+  #   </div>
+  #   <div class="row item">
+  #     <h5>Item Name</h5>
+  #     <i class="material-icons">stars</i>
+  #     <p style="float: right">
+  #       $200,000.00
+  #     </p>
+  #   </div>
+  #   <center><a class="waves-effect waves-light btn" >Proceed to Checkout</a></center> <!--CONNECT THIS TO PAYMENT PAGE-->
+  # </div>
