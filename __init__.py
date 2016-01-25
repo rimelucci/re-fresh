@@ -148,7 +148,7 @@ def settings():
     return render_template('settings.html', username = session['user'])
 
 
-@app.route('/additem', methods=["GET", "POST"])
+@app.route('/additem', methods = ["GET","POST"])
 def additem():
     if request.method == 'POST':
         product = request.form['productname']
@@ -158,6 +158,7 @@ def additem():
         return redirect(url_for('feed'))
     else:
         return render_template('additem.html')
+
 
 
 if __name__ == "__main__":
