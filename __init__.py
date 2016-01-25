@@ -151,6 +151,11 @@ def settings():
     return render_template('settings.html', username = session['user'])
 
 
+@app.route('/additem')
+def additem():
+    return render_template('additem.html')
+
+
 if __name__ == "__main__":
     app.debug = True
     app.secret_key="secret"
