@@ -31,8 +31,10 @@ def customerregister():
         if utils.check_username(username) and utils.register_user(username,email,password):
             #if username is usable, then register user
             #print utils.fetch_all_users()
+            flash('You have successfully registered a customer account')
             return redirect(url_for("customerlogin"))
         else:
+            flash("Your email and password do not match")
             return redirect(url_for("customerregister"))
     #GET case
     else:
@@ -53,9 +55,11 @@ def customerlogin():
             session['name'] = username
             #session.permanent = True
             #app.permanent_session_lifetime = timedelta(minutes=5)
+            flash('You have succesfully logged in as ' + username)
             return redirect(url_for("index"))
         #login fails
         else:
+            flash('Register failed')
             return redirect(url_for("customerlogin"))
 
 @app.route("/storeregister", methods=["GET","POST"])
@@ -67,8 +71,10 @@ def storeregister():
         if utils.check_store(username) and utils.register_store(username,email,password):
             #if username for store is usable, then register store
             #print utils.fetch_all_storess()
+            flash('You have successfully registered a store account')
             return redirect(url_for("storelogin"))
         else:
+            flash('Register failed')
             return redirect(url_for("storeregister"))
     #GET case
     else:
@@ -89,6 +95,7 @@ def storelogin():
             session['name'] = username
             #session.permanent = True
             #app.permanent_session_lifetime = timedelta(minutes=5)
+            flash('You have successfully registered a store account')
             return redirect(url_for("additem"))
         #login fails
         else:
