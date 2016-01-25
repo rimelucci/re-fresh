@@ -157,6 +157,8 @@ def settings():
 
 @app.route('/additem', methods = ["GET","POST"])
 def additem():
+    if session['user'] == 0:
+        redirect(url_for("feed"))
     if request.method == 'POST':
         product = request.form['productname']
         price = request.form['price']
