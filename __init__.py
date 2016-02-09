@@ -169,6 +169,11 @@ def additem():
         return render_template('additem.html')
 
 
+@app.route('/add/<itemname>')
+def add():
+    utils.purchase_item(itemname)
+    return redirect(url_for('feed'))
+    
 
 if __name__ == "__main__":
     app.debug = True
