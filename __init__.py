@@ -173,6 +173,10 @@ def additem():
 def add():
     utils.purchase_item(itemname)
     return redirect(url_for('feed'))
+
+@app.route('/info/<itemname>')
+def info():
+    #function that returns info from the databases
     
 
 if __name__ == "__main__":
