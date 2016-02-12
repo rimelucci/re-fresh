@@ -175,9 +175,62 @@ def add():
     return redirect(url_for('feed'))
 
 @app.route('/info/<itemname>')
-def info():
+def info(itemName=""):
     #function that returns info from the databases
-    
+    information = utils.get_item_info(session[name], itemName)
+    popUpWindowCode = """<!--This serves as the darkening agent for individual item view -->
+      <div class="view-cover"></div>
+      <!-- End cover here -->
+
+          <div id="item-view" class="writing">
+            <a href="#" id="close"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right"></span></a>
+            <div class="row">
+              <div class="col s6">
+                <img src="http://www.dineoncampus.com/tools/contentImages/image/turkeysub2.jpg" id="item-image">
+              </div>
+
+              <div class="col s6">
+                <center>
+                  <h1>""" + information[0] + """</h1>
+                  <h5>Provider Name, Address goes here</h5>
+                  <h3>"""+ information[1] +"""</h3> <!--PRICE GOES HERE-->
+                  <hr color="black" width="75%">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis tristique ante, eget lobortis erat ullamcorper vel. Fusce imperdiet faucibus nunc id lobortis.</p>
+                  <hr color="black" width="75%">
+                </center>
+                <h6>Buy it now!</h6>
+                <form class="" action="index.html" method="post">
+                  <div class="row">
+
+                    <div class="input-field col s4">
+                      Quantity
+                      <select name="quantity" class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                  </div>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                              <a class="waves-effect waves-light btn">Add to Cart</a>
+                        </div>
+
+                        <div class="input-field col s4 offset-s1">
+                              <a class="waves-effect waves-light btn">Get Directions</a>
+                        </div>
+                      </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        <!--END CRAPPY CODE -->"""
+    print information[0]
+    return redirect(url_for("feed"), popUpWindowCode = popUpWindowCode)
+
 
 if __name__ == "__main__":
     app.debug = True
