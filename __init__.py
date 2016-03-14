@@ -174,10 +174,11 @@ def add():
     utils.purchase_item(itemname)
     return redirect(url_for('feed'))
 
-@app.route('/info/<itemname>')
-def info(itemName=""):
+@app.route('/info/<itemname>/<provideremail>')
+def info(itemname="", provideremail=""):
     #function that returns info from the databases
-    information = utils.get_item_info(session[name], itemName)
+    information = utils.get_item_info(itemname, provideremail)
+    print information
     popUpWindowCode = """<!--This serves as the darkening agent for individual item view -->
       <div class="view-cover"></div>
       <!-- End cover here -->
@@ -228,7 +229,6 @@ def info(itemName=""):
             </div>
           </div>
         <!--END CRAPPY CODE -->"""
-    print information[0]
     return redirect(url_for("feed"), popUpWindowCode = popUpWindowCode)
 
 
