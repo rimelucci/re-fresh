@@ -174,6 +174,19 @@ def add():
     utils.purchase_item(itemname)
     return redirect(url_for('feed'))
 
+
+
+#####POPUP FUNCTION#########
+# HAS TEMPLATE CODE THAT SHOULD ALWAYS STAY THE SAME
+# BUT NEEDS CERTAIN INPUTS SPECIFIC TO THE ITEM SELECTED
+###############################3
+# INPUTS: NAME OF ITEM, PRICE OF ITEM (THESE ARE THE ESSENTIAL ONES)
+# INPUTS TO ADD LATER: IMAGE, PROVIDER NAME, ADDRESS,
+###############################
+# OUTPUTS: THE TEMPLATE STUFF WITH THE INPUTS IN THE RESPECTIVE SPOTS
+# NAME SHOULD GO IN <H1> TAG
+# PRICE SHOULD GO IN <H3> TAG
+
 @app.route('/info/<itemname>/<provideremail>')
 def info(itemname="", provideremail=""):
     #function that returns info from the databases
@@ -192,8 +205,8 @@ def info(itemname="", provideremail=""):
 
               <div class="col s6">
                 <center>
-                  <h1>""" + information[0] + """</h1>
-                  <h5>Provider Name, Address goes here</h5>
+                  <h1>""" + information[0] + """</h1>  <!--NAME GOES HERE -->
+                  <h5>Provider Name, Address goes here</h5> <!--PROVIDER NAME AND ADDRESS WILL GO HERE -->
                   <h3>"""+ information[1] +"""</h3> <!--PRICE GOES HERE-->
                   <hr color="black" width="75%">
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis tristique ante, eget lobortis erat ullamcorper vel. Fusce imperdiet faucibus nunc id lobortis.</p>
