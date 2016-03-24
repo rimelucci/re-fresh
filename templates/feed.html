@@ -5,25 +5,25 @@
 {% endblock %}
 
 <!--
-<meta charset="utf-8">
-<title>Re-Fresh</title>
-<link rel="stylesheet" href="../static/styles.css" media="screen" title="main-styles" charset="utf-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" media="screen" title="flatUI" charset="utf-8">
-<link href='https://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
-<!-- Compiled and minified CSS
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
--->
+    <meta charset="utf-8">
+    <title>Re-Fresh</title>
+    <link rel="stylesheet" href="../static/styles.css" media="screen" title="main-styles" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" media="screen" title="flatUI" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
+    <!-- Compiled and minified CSS
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	 -->
 
-{% block header %}
-<!-- HEADER HERE ------->
-<header>
-  <div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper writing" style="padding-right: 5% ; padding-left: 5%">
-          <a href="/" class="brand-logo">Re-Fresh</a>
+    {% block header %}
+    <!-- HEADER HERE ------->
+    <header>
+      <div class="navbar-fixed">
+	<nav>
+          <div class="nav-wrapper writing" style="padding-right: 5% ; padding-left: 5%">
+            <a href="/" class="brand-logo">Re-Fresh</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
               <li>Hello {{username}}</li>  <!-- ADD ROUTE HERE -->
               <li><a href="#"><i class="material-icons">search</i></a></li>
@@ -31,33 +31,33 @@
               <li><a href="/settings"><i class="material-icons">settings</i></a></li>
 	      <li><a href="/logout">Logout</a></li>
             </ul>
+	  </div>
+	</nav>
       </div>
-    </nav>
-  </div>
-</header>
-{% endblock %}
+    </header>
+    {% endblock %}
 
-<!---END HEADER -------->
+    <!---END HEADER -------->
 
-<!-- Each row has 4 items, I've labeled the parts that we need to replace -->
-<!-- Need to replace the image, the title, the description -->
+    <!-- Each row has 4 items, I've labeled the parts that we need to replace -->
+    <!-- Need to replace the image, the title, the description -->
 
-{% block body %}
+    {% block body %}
 
-{% with messages = get_flashed_messages() %}
-<!--{% if messages %}
-<ul class=flashes>
-  {% for message in messages %}
-  <li>{{ message }}</li>
-  {% endfor %}
-</ul>
-{% endif %}-->
-{% endwith %}
+    {% with messages = get_flashed_messages() %}
+    <!--{% if messages %}
+	<ul class=flashes>
+	  {% for message in messages %}
+	  <li>{{ message }}</li>
+	  {% endfor %}
+	</ul>
+	{% endif %}-->
+    {% endwith %}
 
 
-<!---START CART code-->
-{{cart|safe}}
-<!-- End Cart Code -->
+    <!---START CART code-->
+    {{cart|safe}}
+    <!-- End Cart Code -->
 
 <body id="body-home">
 
@@ -66,66 +66,66 @@
 
   {{popUpWindowCode}}
   <!-- End cover here --
-      <div id="item-view" class="writing">
-        <a href="#" id="close"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right"></span></a>
-        <div class="row">
-          <div class="col s6">
-            <img src="http://www.dineoncampus.com/tools/contentImages/image/turkeysub2.jpg" id="item-image">
-          </div>
+       <div id="item-view" class="writing">
+         <a href="#" id="close"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right"></span></a>
+         <div class="row">
+           <div class="col s6">
+             <img src="http://www.dineoncampus.com/tools/contentImages/image/turkeysub2.jpg" id="item-image">
+           </div>
 
-          <div class="col s6">
-            <center>
-              <h1>Title</h1>
-              <h5>Provider Name, Address goes here</h5>
-              <hr color="black" width="75%">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis tristique ante, eget lobortis erat ullamcorper vel. Fusce imperdiet faucibus nunc id lobortis.</p>
-              <hr color="black" width="75%">
-            </center>
-            <h6>Buy it now!</h6>
-            <form class="" action="index.html" method="post">
-              <div class="row">
+           <div class="col s6">
+             <center>
+               <h1>Title</h1>
+               <h5>Provider Name, Address goes here</h5>
+               <hr color="black" width="75%">
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis tristique ante, eget lobortis erat ullamcorper vel. Fusce imperdiet faucibus nunc id lobortis.</p>
+               <hr color="black" width="75%">
+             </center>
+             <h6>Buy it now!</h6>
+             <form class="" action="index.html" method="post">
+               <div class="row">
 
-                <div class="input-field col s4">
-                  Quantity
-                  <select name="quantity" class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
+                 <div class="input-field col s4">
+                   Quantity
+                   <select name="quantity" class="form-control">
+                     <option>1</option>
+                     <option>2</option>
+                     <option>3</option>
+                     <option>4</option>
+                     <option>5</option>
+                   </select>
+                 </div>
+               </div>
 
-                <div class="row">
-                    <div class="input-field col s4">
-                          <a class="waves-effect waves-light btn">Add to Cart</a>
-                    </div>
+               <div class="row">
+                 <div class="input-field col s4">
+                   <a class="waves-effect waves-light btn">Add to Cart</a>
+                 </div>
 
-                    <div class="input-field col s4 offset-s1">
-                          <a class="waves-effect waves-light btn">Get Directions</a>
-                    </div>
-                  </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    --END CRAPPY CODE -->
+                 <div class="input-field col s4 offset-s1">
+                   <a class="waves-effect waves-light btn">Get Directions</a>
+                 </div>
+               </div>
+             </form>
+           </div>
+         </div>
+       </div>
+       --END CRAPPY CODE -->
 
 
 
   <!--CONTAINER THAT HOLDS EVERYTHING -->
   <div id="big-container">
-        <div class="row banner">
+    <div class="row banner">
 
-        </div>
+    </div>
 
-      <h1 style="margin-bottom: 5%">Near You</h1>
+    <h1 style="margin-bottom: 5%">Near You</h1>
     <!--- START OF ROW CODE  -->
 
     {{feed|safe}}
 
-      <script src="/static/app.js"></script>
+    <script src="/static/app.js"></script>
 </body>
 
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends "master.html" %}
+\{% extends "master.html" %}
 
 {% block head %}
 {{ super() }}
@@ -6,43 +6,45 @@
 
 {% block body %}
 
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
 
-	<body class="body">
-		<div id="login-form" class="center">
-			<form method="post">
-				<div class="row">
-					<h1 class="writing">Store Login</h1>
+<body class="body">
+  <div id="login-form" class="center">
+    <form method="post">
+      <div class="row">
+	<h1 class="writing">Store Login</h1>
+	
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul class=flashes>
+	  {% for message in messages %}
+	  <li>{{ message }}</li>
+	  {% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
 
-					<div class="input-field col s8 offset-s2">
-						<input placeholder="Email" id="first_name" name="username" type="text" class="validate writing form-control">
-					</div>
 
-					<div class="input-field col s8 offset-s2">
-						<input placeholder="Password" id="first_name" name="password" type="password" class="validate writing form-control">
-					</div>
+	<div class="input-field col s8 offset-s2">
+	  <input placeholder="Email" id="first_name" name="username" type="email" class="validate writing form-control">
+	</div>
+	
+	<div class="input-field col s8 offset-s2">
+	  <input placeholder="Password" id="first_name" name="password" type="password" class="validate writing form-control">
+	</div>
+	
+      </div>
 
-				</div>
-
-				<div class="row">
-					<button type="submit" class="btn btn-default writing">Submit</button>
-				</div>
-
-				<div class="row">
-					<small class="writing" >Don't have an account? Sign up <a href="/storeregister">here</a>!</small> <!-- ADD ROUTE HERE -->
-				</div>
-
-			</form>
-		</div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-	</body>
+      <div class="row">
+	<button type="submit" class="btn btn-default writing">Submit</button>
+      </div>
+      
+      <div class="row">
+	<small class="writing" >Don't have an account? Sign up <a href="/storeregister">here</a>!</small> <!-- ADD ROUTE HERE -->
+      </div>
+      
+    </form>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
 
 {% endblock %}

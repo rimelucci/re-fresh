@@ -55,7 +55,7 @@ def customerlogin():
             session['name'] = username
             #session.permanent = True
             #app.permanent_session_lifetime = timedelta(minutes=5)
-            flash('You have succesfully logged in as ' + username)
+            flash('You have succesfully logged in as ' + username + '!')
             return redirect(url_for("index"))
         #login fails
         else:

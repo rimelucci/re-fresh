@@ -10,50 +10,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.2.2/css/flat-ui.min.css" media="screen" title="flatUI" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700,300' rel='stylesheet' type='text/css'>
     <!-- Compiled and minified CSS -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-		<!-- HEADER HERE ------->
-		<header>
-			<nav>
-				<div class="nav-wrapper" style="padding-right: 2.5% ; padding-left: 5%">
-					<a href="/" class="brand-logo writing">Re-Fresh</a>
-					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li class="writing"><a href="/">Home</a></li>  <!-- ADD ROUTE HERE -->
-						<li class="writing"><a href="/customerlogin">For Customers</a></li>  <!-- ADD ROUTE HERE -->
-						<li class="writing"><a href="/feed">For Providers</a></li>
-					</ul>
-				</div>
-			</nav>
-		</header>
-		<!---END HEADER -------->
+    <!-- HEADER HERE ------->
+    <header>
+      <nav>
+	<div class="nav-wrapper" style="padding-right: 2.5% ; padding-left: 5%">
+	  <a href="/" class="brand-logo writing">Re-Fresh</a>
+	  <ul id="nav-mobile" class="right hide-on-med-and-down">
+	    <li class="writing"><a href="/">Home</a></li>  <!-- ADD ROUTE HERE -->
+	    <li class="writing"><a href="/customerlogin">For Customers</a></li>  <!-- ADD ROUTE HERE -->
+	    <li class="writing"><a href="/feed">For Providers</a></li>
+	  </ul>
+	</div>
+      </nav>
+    </header>
+    <!---END HEADER -------->
 
 
   </head>
   <body id="body-cart" class="writing">
     <div class="container">
-    <h1>Add an item to your inventory</h1>
-    <div id="add-item" class="horizontal-center">
-      <form class="" method="post">
-        <div class="row">
+      <h1>Add an item to your inventory</h1>
+      <div id="add-item" class="horizontal-center">
+	<form class="" method="post">
+          <div class="row">
             <div class="input-field col s6">
               <input placeholder="Product Name" name="productname" type="text" class="validate form-control" style="font-size: 20pt"> <!--id="first_name"-->
             </div>
-        </div>
+          </div>
 
-        <div class="row">
-          <div class="col s6">
+          <div class="row">
+            <div class="col s6">
               <label for="test5" style="font-size: 15pt">Price: </label>
               <input placeholder="$" name="price" type="text" class="validate form-control" style="font-size: 20pt">
+            </div>
+
+            <div class="col s6">
+              <label for="" style="font-size: 15pt">Quantity:</label>
+              <input placeholder="Insert quantity..." name="quantity" type="text" class="validate form-control" style="font-size: 10pt">
+            </div>
           </div>
 
-          <div class="col s6">
-            <label for="" style="font-size: 15pt">Quantity:</label>
-            <input placeholder="Insert quantity..." name="quantity" type="text" class="validate form-control" style="font-size: 10pt">
-          </div>
-        </div>
-
-        <div class="file-field input-field">
+          <div class="file-field input-field">
             <div class="btn">
               <span>File</span>
               <input type="file">
@@ -61,16 +61,16 @@
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text">
             </div>
-        </div>
-
-        <div class="row" style="margin-top: 5%">
-          <div class="col s12">
-            <center><input type="submit" class="waves-effect waves-light btn"></center>
           </div>
-        </div>
-      </form>
-      <!--End form -->
-    </div>
+
+          <div class="row" style="margin-top: 5%">
+            <div class="col s12">
+              <center><input type="submit" class="waves-effect waves-light btn"></center>
+            </div>
+          </div>
+	</form>
+	<!--End form -->
+      </div>
 
     </div>
   </body>
